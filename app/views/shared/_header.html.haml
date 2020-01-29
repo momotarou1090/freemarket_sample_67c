@@ -1,24 +1,26 @@
 .header
-  .header__main
-    .header__wrapper
-      .header__wrapper__top
-        .header__wrapper__top__logo
-          メルカリ
-        .header__wrapper__top__search-box
-          .header__wrapper__top__search-box__window
-            何かお探しですか？
-          .header__wrapper__top__search-box__logo
-            ◎
-      .header__wrapper__bottom
-  
-        .header__wrapper__bottom__find-box
-          .header__wrapper__bottom__find-box__category
-            カテゴリー
-          .header__wrapper__bottom__find-box__brand
-            ブランド
-  
-        .header__wrapper__bottom__login-box
-          .header__wrapper__bottom__login-box__regi-btn
-            新規会員登録
-          .header__wrapper__bottom__login-box__log-btn
-            ログイン
+  .header__wrapper
+    .header__wrapper__top
+      .header__wrapper__top__logo
+        = link_to (image_tag 'logo/logo.png'), "#"
+        -# = image_tag 'logo/logo.png', :size =>'140x41'
+      .header__wrapper__top__search-box
+        .header__wrapper__top__search-box__window
+          = form_with model: @user, url: items_path, id: 'search-input-id', class: 'search-input', local: true do |f|
+            = f.text_field :keyword, placeholder: "キーワードから探す"
+        .header__wrapper__top__search-box__logo
+          = link_to(icon('fa', 'search'),"#")
+    .header__wrapper__bottom
+
+      .header__wrapper__bottom__find-box
+        .header__wrapper__bottom__find-box__category
+          = link_to 'カテゴリー', "#", method: :get
+
+        .header__wrapper__bottom__find-box__brand
+          = link_to 'ブランド', "#", method: :get
+
+      .header__wrapper__bottom__login-box
+        .header__wrapper__bottom__login-box__regi-btn
+          = link_to '新規会員登録', "#", method: :get
+        .header__wrapper__bottom__login-box__log-btn
+          = link_to 'ログイン', "#", method: :get
