@@ -76,14 +76,14 @@
 
 .footer{
   padding:60px 0;
-  background-color:#272727;
+  background-color:$black;
   height: 230px;
   width: 100vw;
   text-align: center;
   position: fixed;
   bottom: 0;
   &__main{
-    background-color: white;
+    background-color:$white;
     max-width: 840px;
     margin: 0 auto;
     height: 200px;
