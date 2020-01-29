@@ -1,0 +1,89 @@
+.header{
+  background-color: blue;
+  height: 100px;
+  width: 100vw;
+  &__main{
+    margin: 0 auto;
+    width: 80%;
+    padding:5px;
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    .header__wrapper__top{
+      background-color: red;
+      padding: 5px;
+      display: flex;
+
+      &__logo{
+        border: green solid 1px;
+        width: 150px;
+
+      }
+
+      &__search-box{
+        border: green solid 1px;
+        width: calc(100% - 150px);
+        padding: 5px;
+        display: flex;
+        justify-content: space-between;
+        &__window{
+          
+        }
+        &__logo{
+          border: green solid 1px;
+
+        }
+      }
+
+    }
+
+    .header__wrapper__bottom{
+      padding: 5px;
+      display: flex;
+      justify-content: space-between;
+      
+      &__find-box{
+        display: flex;
+
+        &__category{
+          border: white solid 1px;
+          display: flex;
+          &__btn{
+          border: white solid 1px;
+          }
+          &__text{
+
+          }
+        }
+
+        &__brand{
+          border: white solid 1px;
+          display: flex;
+          &__btn{
+          border: white solid 1px;
+        }
+        &__text{
+          
+        }
+        
+        
+      }
+      
+    }
+    &__login-box{
+      display: flex;
+      &__regi-btn{
+        border: white solid 1px;
+        
+      }
+      &__log-btn{
+        border: white solid 1px;
+
+        }
+
+      }
+    }
+  }
+}
