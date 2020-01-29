@@ -50,28 +50,13 @@
         &__category{
           border: white solid 1px;
           display: flex;
-          &__btn{
-          border: white solid 1px;
-          }
-          &__text{
-
-          }
         }
 
         &__brand{
           border: white solid 1px;
           display: flex;
-          &__btn{
-          border: white solid 1px;
         }
-        &__text{
-          
-        }
-        
-        
       }
-      
-    }
     &__login-box{
       display: flex;
       &__regi-btn{
@@ -84,6 +69,55 @@
         }
 
       }
+
+    }
+  }
+}
+
+.footer{
+  padding:60px 0;
+  background-color:#272727;
+  height: 230px;
+  width: 100vw;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  &__main{
+    background-color: white;
+    max-width: 840px;
+    margin: 0 auto;
+    height: 200px;
+    display: flex;
+    justify-content: space-between;
+
+    &__top__left{
+      background-color: gray;
+      height: 100%;
+      width: 180px;
+    }
+    &__top__center{
+      background-color: blue;
+      height: 100%;
+      width: 180px;
+    }
+    &__top__right{
+      background-color: green;
+      height: 100%;
+      width: 180px;
+    }
+  }
+  &__bottom{
+    max-width: 160px;
+    width: 100%;
+    margin: 0 auto;
+    &__logo{
+      background-color:purple;
+      height:50px;
+    }
+    &__text{
+      background-color: yellow;
+      height: 20px;
+
     }
   }
 }
