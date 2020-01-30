@@ -23,7 +23,7 @@
 |card_number|integer|null: false|
 |period|integer|null: false|
 |secure|integer|null: false|
-
+|user_id|reference|foreign_key: true|
 ### Association
 - belongs_to :user 
 
@@ -41,6 +41,8 @@
 |first_name|string|null: false|
 |last_name_kana|string|null: false|
 |first_name_kana|string|null: false|
+|user_id|reference|foreign_key: true|
+
 ### Association
 - belongs_to :user
 
@@ -55,6 +57,8 @@
 |shipping_date|string|null: false|
 |seller_id|string|null: false|
 |buyer_id|interger|
+|bland_id|reference|foreign_key: true|
+|category_id|reference|foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -67,6 +71,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |image|text||
+|item_id|reference|foreign_key: true|
 
 ### Association
 - belongs_to :item
