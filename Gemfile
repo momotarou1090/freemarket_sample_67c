@@ -76,3 +76,5 @@ gem 'font-awesome-sass'
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'devise'
+gem 'ancestry'
+
