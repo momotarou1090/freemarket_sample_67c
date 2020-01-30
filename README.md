@@ -23,12 +23,12 @@
 |card_number|integer|null: false|
 |period|integer|null: false|
 |secure|integer|null: false|
-|user_id|reference|foreign_key: true|
+|user_id|reference|null: false, foreign_key: true|
 ### Association
 - belongs_to :user 
 
 
-## adressesテーブル
+## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |post_code|integer|null: false|
@@ -57,7 +57,7 @@
 |shipping_date|string|null: false|
 |seller_id|string|null: false|
 |buyer_id|interger|
-|bland_id|reference|foreign_key: true|
+|brand_id|reference|foreign_key: true|
 |category_id|reference|foreign_key: true|
 
 ### Association
@@ -71,7 +71,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |image|text||
-|item_id|reference|foreign_key: true|
+|item_id|reference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :item
@@ -84,26 +84,11 @@
 
 ### Association
 - has_ancestory
-- has_many :brands, through: :category_bland
-- has_many :category_bland
 - has_many :items
 
-## blandsテーブル
+## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|s
+|name|string|null: false|
 ## Association
-- has_many :categories, through: :category_bland
-- has_many :category_bland
 - has_many :items
-
-
-## category_blandテーブル
-|Column|Type|Options|
-|------|----|-------|
-|categorys_id|references|null: false, foreign_key: true|
-|blands_id|references|null: false, foreign_key: true|
-
-### Association
-belongs_to category
-belongs_to bland
