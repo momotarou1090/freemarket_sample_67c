@@ -2,19 +2,20 @@
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false,unique: true,index: true|
+|nickname|string|null: false, index: true|
 |last_name|string|null: false|
 |first_name|string|null: false|
+|email|string|null: false|
 |year|integer|null: false|
 |month|integer|null: false|
 |date|integer|null: false|
 |phone|integer|null: false|
 ### Association
-- belongs_to :adress
-- belongs_to :credits
-- belongs_to :items
+- has_many :adresses
+- has_many :credits
+- has_many :items
 
-## adressテーブル
+## adressesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |post_code|integer|null: false|
@@ -28,32 +29,36 @@
 |last_name_kana|string|null: false|
 |first_name_kana|string|null: false|
 ### Association
-- has_many :users
+- belongs_to :user
 
-## creditテーブル
+## creditsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |card_number|integer|null: false|
 |period|integer|null: false|
 |secure|integer|null: false|
 ### Association
-- has_many :users 
+- belongs_to :user 
 
 ## blandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 ## Association
-- categorys through:bland
+- has_many :categrys, through: :brand_category
+- has_many :brand_categorys
+- has_many :items
 
-## categoriesテーブル
+## categorysテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 
 ### Association
-- blands through:bland_category
 - has_ancestory
+- has_many :brands, through: :brand_category
+- has_many :brand_categories
+- has_many :items
 
 ## bland_categoryテーブル
 |Column|Type|Options|
@@ -61,8 +66,8 @@
 |categorys_id|references|null: false, foreign_key: true|
 |blands_id|references|null: false, foreign_key: true|
 ### Association
-belongs_to categorys
-belongs_to blands
+belongs_to category
+belongs_to bland
 
 ## itemsテーブル
 |Column|Type|Options|
@@ -75,32 +80,14 @@ belongs_to blands
 |Seller_id|string|null: false|
 |buyer_id|interger|
 ### Association
-- has_many :users
-- blands through:item_bland
-- categorys through:item_category
-- belongs_to images
-
-## item_bland
-|Column|Type|Options|
-|------|----|-------|
-|blans_id|references|null: false|
-|items_id|references|null: false|
-### Association
-- belongs_to items
-- belongs_to blands
-
-## item_category
-|Column|Type|Options|
-|------|----|-------|
-|items_id|references|null: false|
-|category_id|references|null: false|
-### Association
-- belongs_to items
-- belongs_to categorys
+- belongs_to :user
+- belongs_to :brand
+- belongs_to :category
+- has_many :images 
 
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |image|text||
 ### Association
-- has_many :items
+- belongs_to :item
