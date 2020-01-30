@@ -50,7 +50,6 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-
 ### Association
 - blands through:bland_category
 - has_ancestory
