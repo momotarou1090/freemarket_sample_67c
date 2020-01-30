@@ -6,10 +6,10 @@
 |last_name|string|null: false|
 |first_name|string|null: false|
 |email|string|null: false|
-|year|integer|null: false|
-|month|integer|null: false|
-|date|integer|null: false|
-|phone|integer|null: false|
+|birth_year|integer|null: false|
+|birth_month|integer|null: false|
+|birth_date|integer|null: false|
+|phone_number|integer|null: false|
 
 ### Association
 - has_many :adresses
@@ -21,7 +21,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |card_number|integer|null: false|
-|period|integer|null: false|
+|period_month|integer|null: false|
+|period_year|integer|null: false|
 |secure|integer|null: false|
 |user_id|reference|null: false, foreign_key: true|
 ### Association
@@ -36,12 +37,13 @@
 |city|string|null: false|
 |block|string|null: false|
 |building|string|null: false|
-|phone|string|null: false|
 |last_name|string|null: false|
 |first_name|string|null: false|
 |last_name_kana|string|null: false|
 |first_name_kana|string|null: false|
+|phone_number|string|null: false|
 |user_id|reference|foreign_key: true|
+
 
 ### Association
 - belongs_to :user
