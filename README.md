@@ -56,7 +56,8 @@
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|null: false|
+|name|string|null: false|
+|price|interger|null: false|
 |condition|string|null: false|
 |postage|string|null: false|
 |region|string|null: false|
