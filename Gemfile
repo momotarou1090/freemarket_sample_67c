@@ -77,4 +77,4 @@ gem 'carrierwave'
 gem 'fog-aws'
 gem 'devise'
 gem 'ancestry'
-
+gem 'erb2haml'
