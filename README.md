@@ -57,6 +57,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|description|string|null: false|
 |price|interger|null: false|
 |condition|string|null: false|
 |postage|string|null: false|
@@ -66,6 +67,7 @@
 |buyer_id|interger|
 |brand_id|reference|foreign_key: true|
 |category_id|reference|foreign_key: true|
+
 
 ### Association
 - belongs_to :user
