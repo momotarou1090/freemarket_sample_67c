@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
     Rails.env.production?
   end
 
-  def basic_auth
+  def basic_auth #ベーシック認証用。完成後は不要？
     authenticate_or_request_with_http_basic do |username, password|
       username == ENV["BASIC_AUTH_USER"] && password == ENV["BASIC_AUTH_PASSWORD"]
     end
