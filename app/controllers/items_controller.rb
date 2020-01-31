@@ -10,7 +10,6 @@ class ItemsController < ApplicationController
 
   def create
     Item.create(item_params)
-    binding.pry
   end
 
   private
