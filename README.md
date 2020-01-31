@@ -5,6 +5,10 @@
 |nickname|string|null: false, index: true|
 |last_name|string|null: false|
 |first_name|string|null: false|
+|last_name_kana|string|null: false|
+|first_name_kana|string|null: false|
+|password|integer|null: false|
+|password_confirmation|integer|null: false|
 |email|string|null: false|
 |birth_year|integer|null: false|
 |birth_month|integer|null: false|
@@ -83,7 +87,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-
+|ancestry|string|null: false|
 ### Association
 - has_ancestory
 - has_many :items
