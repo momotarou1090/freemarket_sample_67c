@@ -113,8 +113,8 @@
   height: 230px;
   width: 100vw;
   text-align: center;
-  position: fixed;
-  bottom: 0;
+  // position: absolute; // スクロールに応じてフッターも動いてくれるように、position: fixed→absolute;にしてます
+  // bottom: 0;
   color: #fff;
   &__main{
     background-color:#272727;
