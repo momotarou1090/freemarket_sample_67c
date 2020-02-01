@@ -1,19 +1,16 @@
-.image_form {
-  margin-top: 20px;
-  .column_title {
-    display: flex;
-    justify-content: start;
-    h1 {
-      font-weight: bold;
-      font-size: 14px;
-      padding: 5px;
-    }
-    p {
-      color: #fff;
-      font-weight: bold;
-      font-size: 14px;
-      background-color: $main_blue;
-      padding: 2px;
+.main{
+  .show_main{
+    .content{
+      .item_box{
+        .item_box__item_title{
+
+        }
+        .image_form {
+          margin-top: 20px;
+          align-items: center;
+        }
+      
+      }
     }
   }
 }
@@ -22,6 +19,7 @@ span {
   font-size: 12px;
   color: #555555;
   margin: 5px;
+
 }
 
 .split {
@@ -29,20 +27,84 @@ span {
   justify-content: space-between;
 }
 
-.items_form  {
+.items_form {
   width: 100%;
+}
+.items_form-a {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 10px;
+}
+.items_form-b {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 10px;
+}
+.items_form-c {
+  width: 400px;
+  height: 80px;
+  margin-bottom: 10px;
+}
+.items_form-d {
+  width: 200px;
+  height: 30px;
+  margin-bottom: 10px;
 }
 
 .send_btn {
+  color: white;
   background-color: $main_blue;
-  padding: 5px;
   width: 100%;
+  margin-top: 15px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 5px;
 }
 
 .back_btn {
+  display:block;
   background-color: #bbb;
   color: #fff;
   text-decoration: none;
   text-align: center;
   padding: 5px 50px;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 5px;
+  margin: 15px auto;
+
+}
+
+.column_title {
+  display: flex;
+  flex-direction: column;
+  &__wrapper{
+    display: flex;
+    justify-content: flex-start;
+  h1 {
+    font-weight: bold;
+    font-size: 14px;
+    padding: 5px 10px;
+    line-height: 25px;
+    height: 25px;
+  }
+  p {
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    background-color: $main_blue;
+    border-radius: 3px;
+    line-height: 25px;
+    height: 25px;
+    width: 35px;
+    text-align: center;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+  }
+  }
+}
+
+form{
+  align-items: center;
 }
