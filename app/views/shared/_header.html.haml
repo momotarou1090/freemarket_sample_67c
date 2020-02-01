@@ -3,7 +3,6 @@
     .header__wrapper__top
       .header__wrapper__top__logo
         = link_to (image_tag 'logo/logo.png'), "#"
-        -# = image_tag 'logo/logo.png', :size =>'140x41'
       .header__wrapper__top__search-box
         .header__wrapper__top__search-box__window
           = form_with model: @user, url: items_path, id: 'search-input-id', class: 'search-input', local: true do |f|

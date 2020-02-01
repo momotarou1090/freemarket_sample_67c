@@ -77,4 +77,4 @@ gem 'carrierwave'
 gem 'fog-aws'
 gem 'devise'
 gem 'ancestry'
-
+gem 'mini_magick'

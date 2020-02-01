@@ -1,18 +1,15 @@
 .header{
-  // background-color: blue;
   padding: 0 60px;
   &__wrapper{
     max-width: 1040px;
     width: 100%;
     margin: 0 auto;
     padding: 15px 0 0 ;
-    // background-color: gray;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
 
     &__top{
-      // background-color: red;
       position: relative;
       display: flex;
       align-items: center;
@@ -113,8 +110,8 @@
   height: 230px;
   width: 100vw;
   text-align: center;
-  position: fixed;
-  bottom: 0;
+  // position: fixed;
+  // bottom: 0;
   color: #fff;
   &__main{
     background-color:#272727;

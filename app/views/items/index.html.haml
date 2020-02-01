@@ -1,3 +1,4 @@
+//人生を変えるフリマアプリ部分
 .main
   .key-visual-a
     .key-visual-a__text-box
@@ -10,30 +11,42 @@
             フリマアプリです
       .key-visual-a__text-box__banners
         .banner-apple
-          アップルロゴ
+          = link_to (image_tag 'apple-logo.svg',size: '180x60'), "#"
+
         .banner-google
-          グーグルロゴ
+          = link_to (image_tag 'google-play-badge.png',size: '230x90'), "#"
+
       
+  //FURIMAが選ばれる３つの理由部分
   .introductions
     .introductions__title
       FURIMAが選ばれる3つの理由
     .introductions__lists
       .introductions__lists__list
         .introductions__lists__list__image-left
-          .introductions__lists__list__image__no
+          .introductions__lists__list__image-left__no
+            1
         .introductions__lists__list__title
+          3分ですぐに出品
         .introductions__lists__list__text
+          スマホで入力するだけで簡単に出品できる！
       .introductions__lists__list
         .introductions__lists__list__image-center
-          .introductions__lists__list__image__no
+          .introductions__lists__list__image-center__no
+            2
         .introductions__lists__list__title
+          シンプルで使いやすい
         .introductions__lists__list__text
+          めんどくさい入力は必要なく検索も購入もスムーズ！
       .introductions__lists__list
         .introductions__lists__list__image-right
-          .introductions__lists__list__image__no
+          .introductions__lists__list__image-right__no
+            3
         .introductions__lists__list__title
+          手数料業界最安
         .introductions__lists__list__text
-
+          最大3%でお得に出品&購入！
+  //会員数日本一位部分
   .key-visual-b
     .key-visual-b__wrapper
       .key-visual-b__wrapper__title
@@ -47,75 +60,113 @@
           欲しかったあの商品に出会えるかもしれません。
       .key-visual-b__wrapper__banners
         .banner-apple
-          アップル
-        .banner-google
-          グーグル
+          = link_to (image_tag 'apple-logo.svg',size: '180x60'), "#"
 
+        .banner-google
+          = link_to (image_tag 'google-play-badge.png',size: '230x90'), "#"
+
+  //FURIMAの特徴部分
   .key-features
     .key-features__title
       FURIMAの特徴
     .key-features__wrapper
       .key-features__wrapper__box        
         .key-features__wrapper__box__image-left
-          イメージ
         .key-features__wrapper__box__title
-          タイトル
+          簡単に売り買いできる
         .key-features__wrapper__box__text
-          テキスト
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能
       .key-features__wrapper__box
         .key-features__wrapper__box__image-center
-          イメージ
         .key-features__wrapper__box__title
-          タイトル
+          売上金は即日振込みに対応
         .key-features__wrapper__box__text
-          テキスト
+          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
       .key-features__wrapper__box
         .key-features__wrapper__box__image-right
-          イメージ
         .key-features__wrapper__box__title
-          タイトル
+          様々な支払いに対応
         .key-features__wrapper__box__text
-          テキスト
+          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
 
+  //ピックアップカテゴリー部分
   .pickup-items
     .pickup-items__title
       ピックアップカテゴリー
-    .items-wrapper
-      .item__box
-        .item__box__image
-          イメージ
-        .item__box__body
-          .item__box__body__name
-            商品名
-          .item__box__body__price-box
-            .item__box__body__price-box__price
-              1000円
-            .item__box__body__price-box__tax
-              (税込)
-      .item__box
-        .item__box__image
-          イメージ
-        .item__box__body
-          .item__box__body__name
-            商品名
-          .item__box__body__price-box
-            .item__box__body__price-box__price
-              2000円
-            .item__box__body__price-box__tax
-              （税込）
-      .item__box
-        .item__box__image
-          イメージ
-        .item__box__body
-          .item__box__body__name
-            商品名
-          .item__box__body__price-box
-            .item__box__body__price-box__price
-              3000円
-            .item__box__body__price-box__tax
-              （税込）
-      
+    .items_title
+      %p 新規投稿商品
+      .items-wrapper
+        .item__box
+          .item__box__image
+            イメージ
+          .item__box__body
+            .item__box__body__name
+              商品名
+            .item__box__body__price-box
+              .item__box__body__price-box__price
+                1000円
+              .item__box__body__price-box__tax
+                (税込)
+        .item__box
+          .item__box__image
+            イメージ
+          .item__box__body
+            .item__box__body__name
+              商品名
+            .item__box__body__price-box
+              .item__box__body__price-box__price
+                2000円
+              .item__box__body__price-box__tax
+                （税込）
+        .item__box
+          .item__box__image
+            イメージ
+          .item__box__body
+            .item__box__body__name
+              商品名
+            .item__box__body__price-box
+              .item__box__body__price-box__price
+                3000円
+              .item__box__body__price-box__tax
+                （税込）
 
+    .items_title
+      %p アーカイバ
+      .items-wrapper
+        .item__box
+          .item__box__image
+            イメージ
+          .item__box__body
+            .item__box__body__name
+              商品名
+            .item__box__body__price-box
+              .item__box__body__price-box__price
+                1000円
+              .item__box__body__price-box__tax
+                (税込)
+        .item__box
+          .item__box__image
+            イメージ
+          .item__box__body
+            .item__box__body__name
+              商品名
+            .item__box__body__price-box
+              .item__box__body__price-box__price
+                2000円
+              .item__box__body__price-box__tax
+                （税込）
+        .item__box
+          .item__box__image
+            イメージ
+          .item__box__body
+            .item__box__body__name
+              商品名
+            .item__box__body__price-box
+              .item__box__body__price-box__price
+                3000円
+              .item__box__body__price-box__tax
+                （税込）
+//誰でも簡単、人生を変えるフリマアプ部分
 .app-banner
   .app-banner__box
     .app-banner__box__text-top
@@ -125,6 +176,17 @@
     .banner-wrapper
       .banner-wrapper__box 
         .banner-apple
-          アップルロゴ
+          = link_to (image_tag 'apple-logo.svg',size: '180x60'), "#"
         .banner-google 
-          グーグルロゴ
+          = link_to (image_tag 'google-play-badge.png',size: '230x90'), "#"
+
+
+.post-item-btn
+  = link_to items_path, class:"post-item-btn"  do
+    .post-item-btn__title
+      出品する
+    .post-item-btn__image
+      = image_tag 'icon/icon_camera.png', size: '50x50'
+
+
+
