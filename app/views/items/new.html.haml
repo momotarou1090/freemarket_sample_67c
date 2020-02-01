@@ -1,20 +1,25 @@
 .image_test
-  = form_with(model: @item, url: items_path, local: true, method: :post) do |form|
-    = form.file_field :image
+  = form_with(model: @item, url: items_path, local: true, method: :post,class:"user_new" ) do |form|
+    -# = form.file_field :image
+    出品者
+    = form.text_field :seller_id
+    商品名
+    = form.text_field :name 
+    商品の説明
+    = form.text_field :description
+    カテゴリ
+    = form.text_field :categories_id
+    発送料の負担
+    = form.text_field :postage
+    発送元の地域
+    = form.text_field :region
+    発送までの日数
+    = form.text_field :shipping_date
+    価格
+    = form.text_field :price
+    状態
+    = form.text_field :condition
+    ステータス
+    = form.text_field :status
     = form.submit "SEND"
 
-
-
--# <div class="contents row">
--#   <div class="container">
--#     <%= form_with(model: @tweet, local: true) do |form| %>
--#       <h3>
--#         投稿する
--#       </h3>
--#       <%= form.text_field :name, placeholder: "Nickname" %>
--#       <%= form.text_field :image, placeholder: "Image Url" %>
--#       <%= form.text_area :text, placeholder: "text", rows: "10" %>
--#       <%= form.submit "SEND" %>
--#     <% end %>
--#   </div>
--# </div>
