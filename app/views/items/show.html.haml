@@ -1,0 +1,75 @@
+.main
+  .show_main
+    .content
+      .item_box
+        .item_box__item_title テストアイテム
+        .item_box__body
+          .item_box__body__main_image
+            -# = image_tag
+          %ul.item_box__body__sub_images
+            %li.item_box__body__sub_image1
+            %li.item_box__body__sub_image2
+            %li.item_box__body__sub_image3
+        .item_box__price
+          -# = @item.price
+          %p ¥30,000
+        .item_box__price_detail
+          %p 税込（送料込み）
+        .item_detail
+          .item_detail__item_name テストアイテム
+          .item_table
+            %table
+              %tbody
+                %tr
+                  %th 出品者
+                  %td momomtaro
+                %tr
+                  %th カテゴリー
+                  %td momomtaro
+                %tr
+                  %th ブランド
+                  %td momomtaro
+                %tr
+                  %th 商品のサイズ
+                  %td momomtaro
+                %tr
+                  %th 商品の状態
+                  %td momomtaro
+                %tr
+                  %th 配送料の負担
+                  %td momomtaro
+                %tr
+                  %th 発送元の地域
+                  %td momomtaro
+                %tr
+                  %th 発送日の目安
+                  %td momomtaro
+      .comment_box
+        // コメント機能実装する場合のみ利用
+      %ul.item_links
+        .links_left
+          = link_to "#", class: 'links_angle' do
+            = icon('fa', 'angle-left')
+            前の商品
+        .links_right
+          = link_to "#", class: 'links_angle' do
+            後ろの商品
+            = icon('fa', 'angle-right')
+      = link_to "＜カテゴリー名＞をもっとみる", "#", class: "category_link"
+
+
+  .app-banner
+    .app-banner__box
+      .app-banner__box__text-top
+        誰でも簡単、人生を変えるフリマアプリ
+      .app-banner__box__text-center
+        今すぐ無料ダウンロード
+      .banner-wrapper
+        .banner-wrapper__box 
+          .banner-apple
+            アップルロゴ
+          .banner-google 
+            グーグルロゴ
+  // 上の.app-banner配下のやつもrenderで呼び出したいですね！
+
+= render 'shared/footer'

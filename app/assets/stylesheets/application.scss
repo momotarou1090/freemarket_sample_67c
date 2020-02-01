@@ -1,7 +1,10 @@
 @import "reset";
 @import "config/colors"; //２番目に読み込むので動かさないでください
+@import "config/font";
 @import "items";
+@import "users";
 @import "font-awesome-sprockets";
 @import "./font-awesome";
 @import "items_index";
-
+@import "items_show";
+@import "items_new"

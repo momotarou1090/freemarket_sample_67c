@@ -5,6 +5,10 @@
 |nickname|string|null: false, index: true|
 |last_name|string|null: false|
 |first_name|string|null: false|
+|last_name_kana|string|null: false|
+|first_name_kana|string|null: false|
+|password|integer|null: false|
+|password_confirmation|integer|null: false|
 |email|string|null: false|
 |birth_year|integer|null: false|
 |birth_month|integer|null: false|
@@ -52,7 +56,9 @@
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|null: false|
+|name|string|null: false|
+|description|string|null: false|
+|price|interger|null: false|
 |condition|string|null: false|
 |postage|string|null: false|
 |region|string|null: false|
@@ -61,6 +67,7 @@
 |buyer_id|interger|
 |brand_id|reference|foreign_key: true|
 |category_id|reference|foreign_key: true|
+
 
 ### Association
 - belongs_to :user
@@ -83,7 +90,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-
+|ancestry|string|null: false|
 ### Association
 - has_ancestory
 - has_many :items

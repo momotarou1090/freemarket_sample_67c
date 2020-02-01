@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_30_091609) do
+ActiveRecord::Schema.define(version: 2020_01_31_025454) do
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "ancestry"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -26,9 +33,21 @@ ActiveRecord::Schema.define(version: 2020_01_30_091609) do
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "price", null: false
+    t.string "condition", null: false
+    t.string "postage", null: false
+    t.string "region", null: false
+    t.string "shipping_date", null: false
+    t.text "description", null: false
+    t.integer "seller_id", null: false
+    t.integer "buyer_id"
+    t.string "status", null: false
+    t.bigint "categories_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "image"
+    t.index ["categories_id"], name: "index_items_on_categories_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -39,7 +58,17 @@ ActiveRecord::Schema.define(version: 2020_01_30_091609) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "nickname", null: false
+    t.string "last_name", null: false
+    t.string "first_name", null: false
+    t.integer "birth_year", null: false
+    t.string "birth_month", null: false
+    t.string "birth_date", null: false
+    t.string "phone_number", null: false
+    t.string "last_name_kana", null: false
+    t.string "first_name_kana", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["nickname"], name: "index_users_on_nickname"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
