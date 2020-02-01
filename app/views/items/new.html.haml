@@ -1,25 +1,30 @@
-.image_test
-  = form_with(model: @item, url: items_path, local: true, method: :post,class:"user_new" ) do |form|
-    -# = form.file_field :image
+.image_form
+  = form_with model: @item do |f|
+    -# 出品画像
+    -# 最大10枚までアップロードできます
+    -# = f.label(:)
+    = f.fields_for :images do |img|
+      = img.file_field :image, {class: "items_form"}
+
     出品者
-    = form.text_field :seller_id
+    = f.text_field :seller_id, class: "items_form"
     商品名
-    = form.text_field :name 
+    = f.text_field :name, class: "items_form"
     商品の説明
-    = form.text_field :description
+    = f.text_field :description, class: "items_form"
     カテゴリ
-    = form.text_field :categories_id
-    発送料の負担
-    = form.text_field :postage
+    = f.text_field :categories_id, class: "items_form"
+    商品の状態
+    = f.text_field :condition, class: "items_form"
+    配送料の負担
+    = f.text_field :postage, class: "items_form"
     発送元の地域
-    = form.text_field :region
+    = f.text_field :region, class: "items_form"
     発送までの日数
-    = form.text_field :shipping_date
+    = f.text_field :shipping_date, class: "items_form"
     価格
-    = form.text_field :price
-    状態
-    = form.text_field :condition
+    = f.text_field :price, class: "items_form"
     ステータス
-    = form.text_field :status
-    = form.submit "SEND"
+    = f.text_field :status, class: "items_form"
+    = f.submit "SEND"
 
