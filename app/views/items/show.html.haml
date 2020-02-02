@@ -5,45 +5,50 @@
         .item_box__item_title テストアイテム
         .item_box__body
           .item_box__body__main_image
-            -# = image_tag
+            - @item.images.each do |img|
+              = image_tag img.image.url
           %ul.item_box__body__sub_images
             %li.item_box__body__sub_image1
             %li.item_box__body__sub_image2
             %li.item_box__body__sub_image3
         .item_box__price
-          -# = @item.price
-          %p ¥30,000
+          %p 
+            = @item.price
         .item_box__price_detail
           %p 税込（送料込み）
         .item_detail
-          .item_detail__item_name テストアイテム
+          .item_detail__item_name
+            = @item.name
           .item_table
             %table
               %tbody
                 %tr
                   %th 出品者
-                  %td momomtaro
+                  %td
+                    - @user.each do |user|
+                      = user.nickname
                 %tr
                   %th カテゴリー
-                  %td momomtaro
+                  %td テストカテゴリー
                 %tr
                   %th ブランド
-                  %td momomtaro
-                %tr
-                  %th 商品のサイズ
-                  %td momomtaro
+                  %td テストブランド
                 %tr
                   %th 商品の状態
-                  %td momomtaro
+                  %td
+                    = @item.condition
                 %tr
                   %th 配送料の負担
-                  %td momomtaro
+                  %td
+                    = @item.postage
                 %tr
                   %th 発送元の地域
-                  %td momomtaro
+                  %td
+                    = @item.region
                 %tr
                   %th 発送日の目安
-                  %td momomtaro
+                  %td
+                    = @item.shipping_date
       .comment_box
         // コメント機能実装する場合のみ利用
       %ul.item_links
