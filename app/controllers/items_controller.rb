@@ -9,6 +9,8 @@ class ItemsController < ApplicationController
     10.times{ @item.images.build }
   end
 
+
+
   def create
     @item = Item.create(item_params)
     if @item.save!
