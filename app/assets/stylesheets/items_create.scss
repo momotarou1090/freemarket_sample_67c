@@ -1,0 +1,96 @@
+.item-review{
+  height: 200px;
+  display: flex;
+  &__image{
+    background-color: yellow;
+    height: 150px;
+    width: 130px;
+    margin: 20px;
+  }
+  &__wrapper{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    &__title{
+      
+    }
+    &__price{
+      
+    }
+  }
+  
+}
+
+.payment-amount{
+  height: 150px;
+  display: flex;
+  &__title{
+    width: 65%;
+    font-size: 20px;
+  }
+  &__amount{
+    width: 35%;
+    font-size: 30px;
+  }
+}
+
+.payment-methods{
+  height: 200px;
+  &__top{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 50px;
+  }
+  &__bottom{
+    display: flex;
+    flex-direction: column;
+    &__method{
+      
+    }
+    &__card-no{
+      
+    }
+    &__dard-valid{
+      
+    }
+    &__card-logo{
+      
+    }
+    
+  }
+}
+
+.delivery-destination{
+  height: 200px;
+  &__top{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 50px;
+  }
+  &__bottom{
+    display: flex;
+    flex-direction: column;
+  }
+  
+}
+
+.submit-btn{
+  color: white;
+  background-color: red;
+  text-align: center;
+  height: 50px;
+  border-radius: 5px;
+  line-height: 50px;
+}
+
+hr{
+  margin-bottom: 20px;
+}
+
+.title{
+  font-size: 20px;
+}
+
+.btn{
+  color: $main-blue;
+}

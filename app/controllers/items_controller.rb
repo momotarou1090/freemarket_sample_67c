@@ -9,6 +9,8 @@ class ItemsController < ApplicationController
     10.times{ @item.images.build }
   end
 
+
+
   def create
     Item.create(item_params)
 
