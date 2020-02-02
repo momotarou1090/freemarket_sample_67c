@@ -58,7 +58,7 @@
             margin: 8px 0 0;
             display: flex;
             max-width: 334px;
-            span {
+            .birthday {
               line-height: 40px;
               font-size: 20px;
             }
@@ -72,6 +72,13 @@
               height: 50px;
               padding-left: 20px;
             }
+          }
+          .necessary {
+            background-color: $main_blue;
+            color: white;
+            border-radius: 2px;
+            font-size: 12px;
+            padding: 3px;
           }
         }
       }
@@ -97,12 +104,12 @@
     width: 100%;
     padding:15px;
     display:inline-block;
-    background:#ea352d;
+    background:$main_blue;
     color:#fff;
     border-radius:5px;
     text-decoration:none;
     line-height:1;
-    border: 1px solid #ea352d;
+    border: 1px solid $main_blue;
   }
 }
 .space {
