@@ -1,10 +1,11 @@
 @import "reset";
-@import "config/colors"; //２番目に読み込むので動かさないでください
-@import "config/font";
+@import "config/colors"; //動かさないでください
+@import "config/font";  //動かさないでください
+@import "config/mixin"; //動かさないでください
+@import "font-awesome-sprockets"; //動かさないでください
+@import "./font-awesome"; //動かさないでください
 @import "items";
 @import "users";
-@import "font-awesome-sprockets";
-@import "./font-awesome";
 @import "items_index";
 @import "items_show";
 @import "items_new";
