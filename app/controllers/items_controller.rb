@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    10.times{ @item.images.build }
+    1.times{ @item.images.build }
   end
 
 
@@ -22,14 +22,13 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    # @item.image
     @user = User.where(id: @item.seller_id)
   end
 
   private
   def item_params
     params.require(:item).permit(
-      :seller_id, :categories_id, :name, :description, :postage, :region, :shipping_date, :price, :condition, :status, images_attributes: [:id, :image]
+      :seller_id, :categories_id, :name, :description, :postage, :region_id, :shipping_date, :price, :condition, :status, images_attributes: [:id, :image]
     )
   end
 
