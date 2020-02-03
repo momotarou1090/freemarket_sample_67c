@@ -9,6 +9,12 @@ class ItemsController < ApplicationController
     1.times{ @item.images.build }
   end
 
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
+    redirect_to root_path
+  end
+
 
 
   def create

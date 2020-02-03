@@ -235,10 +235,16 @@
     &__text-top{
       text-align: center;
       font-size: 24px;
+      color: white;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-weight: bold;
+      line-height: 1.4;
     }
     &__text-center{
       text-align: center;
       font-size: 35px;
+      color: white;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
     }
     .banner-wrapper{
       margin: 0 auto;
@@ -263,8 +269,8 @@
 .post-item-btn{
   width: 110px;
   height: 110px;
-  background-color: $main-blue;
   display: flex;
+  background-color: $main-blue;
   flex-direction: column;
   align-items: center;
   border-radius: 7px;
