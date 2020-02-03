@@ -1,40 +1,54 @@
-%h2 住所情報登録
-= form_for @address do |f|
-  = render "devise/shared/error_messages", resource: @address
-  .field
-    = f.label :送付先氏名
-    %br/
-    = f.text_field :last_name
-    = f.text_field :first_name
-  .field
-    = f.label :送付先氏名カナ
-    %br/
-    = f.text_field :last_name_kana
-    = f.text_field :first_name_kana
-  .field
-    = f.label :郵便番号
-    %br/
-    = f.text_field :post_code
-  .field
-    = f.label :都道府県
-    %br/
-    = f.text_field :prefecture
-  .field
-    = f.label :市区町村
-    %br/
-    = f.text_field :city
-  .field
-    = f.label :番地
-    %br/
-    = f.text_field :block
-  .field
-    = f.label :マンション名、ビル名、部屋番号など
-    %br/
-    = f.text_field :building
-  .field
-    = f.label :お届け先電話番号
-    %br/
-    = f.text_field :phone_number
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.user-registration
+  .user-registration__header
+  .user-registration__main
+    .user-registration__main__container
+      .user-registration__main__container__head
+        %h2.user-registration__main__container__head__text{style: 'font-size:22px; padding:32px; font-weight:bold;'} 住所登録
+      = form_for @address do |f|
+        = render "devise/shared/error_messages", resource: @address
+        .form-box
+          .field
+            = f.label :送付先氏名
+            %span.necessary 必須
+            %br/
+            .field__name
+              = f.text_field :last_name, class: "form-name name-left"
+              = f.text_field :first_name, class: "form-name name-right"
+          .field
+            = f.label :送付先氏名カナ
+            %span.necessary 必須
+            %br/
+            .field__name
+              = f.text_field :last_name_kana, class: "form-name name-left"
+              = f.text_field :first_name_kana, class: "form-name name-right"
+          .field
+            = f.label :郵便番号
+            %span.necessary 必須
+            %br/
+            = f.text_field :post_code, class: "form"
+          .field
+            = f.label :都道府県
+            %span.necessary 必須
+            %br/
+            = f.text_field :prefecture, class: "form"
+          .field
+            = f.label :市区町村
+            %span.necessary 必須
+            %br/
+            = f.text_field :city, class: "form"
+          .field
+            = f.label :番地
+            %span.necessary 必須
+            %br/
+            = f.text_field :block, class: "form"
+          .field
+            = f.label :マンション名、ビル名、部屋番号など
+            %br/
+            = f.text_field :building, class: "form"
+          .field
+            = f.label :お届け先電話番号
+            %br/
+            = f.text_field :phone_number, class: "form"
+          .actions
+            = f.submit "登録する", class: "next"
+          .space
