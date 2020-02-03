@@ -49,6 +49,9 @@
                   %th 発送日の目安
                   %td
                     = @item.shipping_date
+        .delete-btn-wrapper
+          -if user_signed_in?
+            = link_to "削除する", item_path(@item.id),method: :delete, class:"delete_btn"
       .comment_box
         // コメント機能実装する場合のみ利用
       %ul.item_links
@@ -61,6 +64,7 @@
             後ろの商品
             = icon('fa', 'angle-right')
       = link_to "＜カテゴリー名＞をもっとみる", "#", class: "category_link"
+
 
 
   .app-banner
