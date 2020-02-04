@@ -1,11 +1,12 @@
 class ItemsController < ApplicationController
   
   def index
+    @items = Item.order('id DESC').limit(3)
   end
 
   def new
     @item = Item.new
-    1.times{ @item.images.build }
+    4.times{ @item.images.build }
   end
 
   def destroy
@@ -24,6 +25,7 @@ class ItemsController < ApplicationController
     item.update(item_params)
     redirect_to root_path
   end
+
 
   def create
     @item = Item.create(item_params)
@@ -46,7 +48,7 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(
-      :seller_id, :categories_id, :name, :description, :postage, :region_id, :shipping_date, :price, :condition, :status, images_attributes: [:id, :image]
+      :seller_id, :categories_id, :name, :description, :postage, :region_id, :shipping_date, :price, :condition, :status, images_attributes: [:image]
     )
   end
 

@@ -201,6 +201,11 @@
         &__image{
           background-color: blue;
           height: 180px;
+          }
+        &__content {
+          width: 200px;
+          height: 180px;
+          object-fit: cover;
         }
         &__body{
           padding: 10px;
