@@ -39,6 +39,10 @@ class ItemsController < ApplicationController
     @user = User.where(id: @item.seller_id)
   end
 
+  def confirmation
+
+  end
+
   private
   def item_params
     params.require(:item).permit(
