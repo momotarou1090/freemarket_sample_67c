@@ -79,4 +79,6 @@ gem 'devise'
 gem 'ancestry'
 gem 'mini_magick'
 gem 'erb2haml'
+gem 'font_awesome5_rails'
 gem 'active_hash'
+
