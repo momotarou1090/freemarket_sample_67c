@@ -79,6 +79,9 @@ gem 'devise'
 gem 'ancestry'
 gem 'mini_magick'
 gem 'erb2haml'
+gem 'active_hash'
+gem 'payjp'
+gem "jquery-rails"
 gem 'font_awesome5_rails'
 gem 'active_hash'
 

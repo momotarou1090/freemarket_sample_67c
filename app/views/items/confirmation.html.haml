@@ -30,6 +30,9 @@
           .payment-methods__bottom
             .payment-methods__bottom__method
               支払い方法
+              = form_with url: confirmation_items_path do
+                :plain
+                  <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_68e28eb49989b2a1e9972cf4"></script>
             .payment-methods__bottom__card-no
               ***********4460
             .payment-methods__bottom__card-valid
