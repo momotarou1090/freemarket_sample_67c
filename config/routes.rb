@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     end
   end
   resources :images, only: [:create]
+
   resources :card, only: [:new, :show] do
     collection do
       post 'show', to: 'card#show'
@@ -22,4 +23,7 @@ Rails.application.routes.draw do
       post 'delete', to: 'card#delete'
     end
   end
+  resources :users, only: [:show]
+  
+
 end

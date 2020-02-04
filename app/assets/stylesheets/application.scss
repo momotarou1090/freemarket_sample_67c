@@ -4,10 +4,14 @@
 @import "config/mixin"; //動かさないでください
 @import "font-awesome-sprockets"; //動かさないでください
 @import "./font-awesome"; //動かさないでください
+// @import 'font_awesome5_webfont';
+// @import 'font_awesome5.css';
 @import "items";
 @import "users";
 @import "items_index";
 @import "items_show";
 @import "items_new";
 @import "items_create";
+@import "users_show";
 @import "items_edit";
+
