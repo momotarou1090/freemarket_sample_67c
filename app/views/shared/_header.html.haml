@@ -17,6 +17,15 @@
 
         .header__wrapper__bottom__find-box__brand
           = link_to 'ブランド', "#", method: :get
+
+        .header__wrapper__bottom__find-box__brand
+          = link_to '詳細', "/items/1", method: :get
+
+        .header__wrapper__bottom__find-box__brand
+          = link_to '編集', "http://localhost:3000/items/1/edit", method: :get
+        
+        .header__wrapper__bottom__find-box__brand
+          = link_to '購入確認', "http://localhost:3000/items/confirmation", method: :get
       .header__wrapper__bottom__login-box
         - if user_signed_in?
           .header__wrapper__bottom__login-box__regi-btn
