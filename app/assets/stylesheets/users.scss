@@ -15,10 +15,6 @@
       .field {
         margin-top: 24px;
       }
-      label {
-        font-weight: 600;
-        font-size: 14px;
-      }
       .form {
         width: 300px;
         margin: 8px 0 0;
@@ -100,7 +96,7 @@
   height: 48px;
   width: 334px;
   margin-top: 24px;
-  .signup {
+  .next {
     width: 100%;
     padding:15px;
     display:inline-block;
@@ -114,4 +110,83 @@
 }
 .space {
   height: 100px;
+}
+
+
+
+
+.user-login {
+  height: 100vh;
+  font-size: 14px;
+  color: rgb(51, 51, 51);
+  line-height: 1;
+  background: rgb(241, 239, 239);
+  &__single-container {
+    height: 100%;
+    width: 100%;
+    &__header {
+      height: 128px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &__logo-box {
+        img {
+          width: 185px;
+          height: 49px;
+        }
+      }
+    }
+    &__main {
+      width: 100%;
+      background-color: rgb(241, 239, 239);
+      &__login-panel {
+        width: 456px;
+        height: 500px;
+        margin: 0 auto;
+        background-color: #fff;
+        &__login-no-account {
+          padding: 40px 64px 0 64px;
+          text-align: center;
+          height: 64px;
+          width: 328px;
+          .signup {
+            display: block;
+            margin: 8px 0 0;
+            border: 1px solid #0099e8;
+            background: #0099e8;
+            color: #fff;
+            line-height: 40px;
+          }
+        }
+        &__login-form-inner {
+          padding: 24px 64px 32px;
+          .field {
+            width: 100%;
+            margin-top: 24px;
+            .login-form {
+              width: 300px;
+              margin: 8px 0 0;
+              height: 30px;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              line-height: 1.5;
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+a {
+  text-decoration: none;
+}
+label {
+  font-weight: 600;
+  font-size: 14px;
 }

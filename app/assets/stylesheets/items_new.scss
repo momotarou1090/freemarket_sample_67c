@@ -2,6 +2,7 @@
   .show_main{
     .content{
       .item_box{
+        height: 100%;
         .item_box__item_title{
 
         }
@@ -51,6 +52,31 @@ span {
   margin-bottom: 10px;
 }
 
+#item_condition {
+  width: 400px;
+  height: 40px;
+}
+
+#item_postage {
+  width: 400px;
+  height: 40px;
+}
+
+#item_shipping_date {
+  width: 400px;
+  height: 40px;
+}
+
+#item_categories_id {
+  width: 400px;
+  height: 40px;
+}
+
+#item_region_id {
+  width: 400px;
+  height: 40px;
+}
+
 .send_btn {
   color: white;
   background-color: $main_blue;
@@ -80,6 +106,7 @@ span {
   display: flex;
   flex-direction: column;
   &__wrapper{
+    // background-color: yellow;
     display: flex;
     justify-content: flex-start;
   h1 {
@@ -99,10 +126,15 @@ span {
     height: 25px;
     width: 35px;
     text-align: center;
-    padding: 5px 10px;
+    padding: 1px;
     margin-bottom: 10px;
   }
+}
+  .item_image{ //仮で1枚だけ表示しています
+    height: 300px;
+    width: 300px;
   }
+  
 }
 
 form{
