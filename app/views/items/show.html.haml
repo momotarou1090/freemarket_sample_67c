@@ -51,7 +51,7 @@
                     = @item.shipping_date
         .delete-btn-wrapper
           -if user_signed_in?
-            = link_to "商品の編集", "#", class:"edit_btn"
+            = link_to "商品の編集", edit_item_path, class:"edit_btn"
             = link_to "この商品を削除する", item_path(@item.id),method: :delete, class:"delete_btn"
           %ul.item_links
             .links_left

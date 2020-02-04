@@ -2,6 +2,7 @@
   .show_main{
     .content{
       .item_box{
+        height: 100%;
         .item_box__item_title{
 
         }
@@ -105,6 +106,7 @@ span {
   display: flex;
   flex-direction: column;
   &__wrapper{
+    // background-color: yellow;
     display: flex;
     justify-content: flex-start;
   h1 {
@@ -127,7 +129,12 @@ span {
     padding: 1px;
     margin-bottom: 10px;
   }
+}
+  .item_image{ //仮で1枚だけ表示しています
+    height: 300px;
+    width: 300px;
   }
+  
 }
 
 form{

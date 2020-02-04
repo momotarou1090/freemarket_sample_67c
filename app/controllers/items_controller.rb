@@ -15,6 +15,16 @@ class ItemsController < ApplicationController
     redirect_to root_path
   end
 
+  def edit
+    @item = Item.find(params[:id])
+    @image = Image.find(params[:id])
+  end
+
+  def update
+    item= Item.find(params[:id])
+    item.update(item_params)
+    redirect_to root_path
+  end
 
 
   def create

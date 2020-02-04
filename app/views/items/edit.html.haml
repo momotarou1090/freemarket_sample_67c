@@ -3,16 +3,19 @@
     .content
       .item_box
         .item_box__item_title
-          商品の情報を入力
+          商品の情報を編集
         %hr
-        .column_title
-          .column_title__wrapper
-            %h1 出品画像
-            %p 必須
+        .column_title__edit
+          .column_title__edit__wrapper
+            .column_title___edit__wrapper__text
+              %h1 出品画像
+              %p 必須
+            =image_tag @image.image.url,class:"item_image"
           %span 最大10枚まで登録できます
         .image_form
           = form_with model: @item do |f|
             = f.fields_for :images do |img|
+              -# =image_tag img.image.url
               = img.file_field :image,class: "items_form"
               
             %hr
@@ -20,12 +23,12 @@
               .column_title__wrapper
                 %h1 商品名
                 %p 必須
-              = f.text_field :name,placeholder: "商品名（必須40文字まで)" , class: "items_form-a"
+            = f.text_field :name,placeholder: "商品名（必須40文字まで)" , class: "items_form-a"
             .column_title
               .column_title__wrapper
                 %h1 商品の説明
                 %p 必須
-              = f.text_area :description,placeholder: "商品の説明（必須1000文字以内）" , class: "items_form-b"
+            = f.text_area :description,placeholder: "商品の説明（必須1000文字以内）" , class: "items_form-b"
             %hr
 
             .split
@@ -79,7 +82,7 @@
             = f.hidden_field :status, value: "exibiting" # ユーザーに入力させることなくstatusを出品中にするため
             
             
-            = f.submit "出品する" ,class: "send_btn"
+            = f.submit "編集する" ,class: "send_btn"
             = link_to "もどる", "#", class: "back_btn"
 
 
