@@ -1,16 +1,18 @@
 .main {
   width: 100%;
   .show_main {
+    height: 1300px;
     padding: 40px;
     background-color: #f8f8f8;
     .content {
+      height: 100%;
       width: 700px;
       margin: 0 auto;
       .item_box{
-        height: 1250px;
-        background-color: #fff;
+        height: 100%;
         padding: 24px 40px 40px;
         position: relative;
+        background-color: white;
         &__item_title {
           text-align: center;
           font-weight: bold;
@@ -20,10 +22,12 @@
         &__body {
           width: 560px;
           height: 443px;
-          background-color: #cccccc; 
           margin: 0 auto;
           &__main_image {
-
+            img{
+            height: 400px;
+            width: 400px;
+            }
           }
         }
         &__price  {
