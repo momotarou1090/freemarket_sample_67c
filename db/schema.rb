@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_03_063426) do
+ActiveRecord::Schema.define(version: 2020_02_03_105541) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "post_code", null: false
@@ -29,21 +29,11 @@ ActiveRecord::Schema.define(version: 2020_02_03_063426) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
-
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "credits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "card_number", null: false
-    t.integer "period_month", null: false
-    t.integer "period_year", null: false
-    t.integer "secure", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_credits_on_user_id"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -51,6 +41,10 @@ ActiveRecord::Schema.define(version: 2020_02_03_063426) do
     t.bigint "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "image_03"
+    t.text "image_04"
+    t.text "image_05"
+    t.text "image_02"
     t.index ["item_id"], name: "index_images_on_item_id"
   end
 
@@ -68,7 +62,7 @@ ActiveRecord::Schema.define(version: 2020_02_03_063426) do
     t.bigint "categories_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "image"
+    t.index ["categories_id"], name: "index_items_on_categories_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -79,14 +73,14 @@ ActiveRecord::Schema.define(version: 2020_02_03_063426) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "nickname", default: "", null: false
-    t.string "last_name", default: "", null: false
-    t.string "first_name", default: "", null: false
+    t.string "nickname", null: false
+    t.string "last_name", null: false
+    t.string "first_name", null: false
     t.integer "birth_year", null: false
-    t.integer "birth_month", null: false
-    t.integer "birth_date", null: false
-    t.string "phone_number", default: "", null: false
-    t.string "last_name_kana"
+    t.string "birth_month", null: false
+    t.string "birth_date", null: false
+    t.string "phone_number", null: false
+    t.string "last_name_kana", null: false
     t.string "first_name_kana", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["nickname"], name: "index_users_on_nickname"
@@ -94,6 +88,5 @@ ActiveRecord::Schema.define(version: 2020_02_03_063426) do
   end
 
   add_foreign_key "addresses", "users"
-  add_foreign_key "credits", "users"
   add_foreign_key "images", "items"
 end

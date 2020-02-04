@@ -96,39 +96,19 @@
     .items_title
       %p 新規投稿商品
       .items-wrapper
-        .item__box
-          .item__box__image
-            イメージ
-          .item__box__body
-            .item__box__body__name
-              商品名
-            .item__box__body__price-box
-              .item__box__body__price-box__price
-                1000円
-              .item__box__body__price-box__tax
-                (税込)
-        .item__box
-          .item__box__image
-            イメージ
-          .item__box__body
-            .item__box__body__name
-              商品名
-            .item__box__body__price-box
-              .item__box__body__price-box__price
-                2000円
-              .item__box__body__price-box__tax
-                （税込）
-        .item__box
-          .item__box__image
-            イメージ
-          .item__box__body
-            .item__box__body__name
-              商品名
-            .item__box__body__price-box
-              .item__box__body__price-box__price
-                3000円
-              .item__box__body__price-box__tax
-                （税込）
+        - @item.each do |item|
+          - @image = Image.find_by(item_id: item.id) # 複数あるimageが、どのアイテムのものか特定するためにしょうがなくここに書いてます。他にいい方法あれば教えてください！
+          .item__box
+            .item__box__image
+              = image_tag @image.image.url, class: "item__box__content"
+            .item__box__body
+              .item__box__body__name
+                = item.name
+              .item__box__body__price-box
+                .item__box__body__price-box__price
+                  = item.price
+                .item__box__body__price-box__tax
+                  (税込)
 
     .items_title
       %p アーカイバ

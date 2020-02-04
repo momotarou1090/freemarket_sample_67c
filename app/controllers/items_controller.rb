@@ -1,7 +1,10 @@
 class ItemsController < ApplicationController
   
   def index
-
+    
+    @item = Item.order('id DESC').limit(3)
+    
+    # binding.pry
   end
 
   def new
@@ -14,8 +17,6 @@ class ItemsController < ApplicationController
     item.destroy
     redirect_to root_path
   end
-
-
 
   def create
     @item = Item.create(item_params)
@@ -34,7 +35,7 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(
-      :seller_id, :categories_id, :name, :description, :postage, :region_id, :shipping_date, :price, :condition, :status, images_attributes: [:id, :image]
+      :seller_id, :categories_id, :name, :description, :postage, :region_id, :shipping_date, :price, :condition, :status, images_attributes: [:id, :image, :image_02, :image_03, :image_04, :image_05]
     )
   end
 
