@@ -2,10 +2,6 @@ class ItemsController < ApplicationController
   
   def index
     @items = Item.order('id DESC').limit(3)
-    # @images = Image.all
-    # @images = Image.where(item_id: @items.ids)
-    
-    # image = Image.where(item_id: @item.ids)
   end
 
   def new
@@ -19,6 +15,18 @@ class ItemsController < ApplicationController
     redirect_to root_path
   end
 
+  def edit
+    @item = Item.find(params[:id])
+    @image = Image.find(params[:id])
+  end
+
+  def update
+    item= Item.find(params[:id])
+    item.update(item_params)
+    redirect_to root_path
+  end
+
+
   def create
     @item = Item.create(item_params)
     if @item.save!
@@ -31,6 +39,10 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @user = User.where(id: @item.seller_id)
+  end
+
+  def confirmation
+
   end
 
   private

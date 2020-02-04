@@ -51,19 +51,18 @@
                     = @item.shipping_date
         .delete-btn-wrapper
           -if user_signed_in?
-            = link_to "削除する", item_path(@item.id),method: :delete, class:"delete_btn"
-      .comment_box
-        // コメント機能実装する場合のみ利用
-      %ul.item_links
-        .links_left
-          = link_to "#", class: 'links_angle' do
-            = icon('fa', 'angle-left')
-            前の商品
-        .links_right
-          = link_to "#", class: 'links_angle' do
-            後ろの商品
-            = icon('fa', 'angle-right')
-      = link_to "＜カテゴリー名＞をもっとみる", "#", class: "category_link"
+            = link_to "商品の編集", edit_item_path, class:"edit_btn"
+            = link_to "この商品を削除する", item_path(@item.id),method: :delete, class:"delete_btn"
+          %ul.item_links
+            .links_left
+              = link_to "#", class: 'links_angle' do
+                = icon('fa', 'angle-left')
+                前の商品
+            .links_right
+              = link_to "#", class: 'links_angle' do
+                後ろの商品
+                = icon('fa', 'angle-right')
+          = link_to "＜カテゴリー名＞をもっとみる", "#", class: "category_link"
 
 
 
@@ -79,6 +78,5 @@
             アップルロゴ
           .banner-google 
             グーグルロゴ
-  // 上の.app-banner配下のやつもrenderで呼び出したいですね！
 
 = render 'shared/footer'
