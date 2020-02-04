@@ -1,15 +1,16 @@
 class ItemsController < ApplicationController
   
   def index
+    @items = Item.order('id DESC').limit(3)
+    # @images = Image.all
+    # @images = Image.where(item_id: @items.ids)
     
-    @item = Item.order('id DESC').limit(3)
-    
-    # binding.pry
+    # image = Image.where(item_id: @item.ids)
   end
 
   def new
     @item = Item.new
-    1.times{ @item.images.build }
+    4.times{ @item.images.build }
   end
 
   def destroy
@@ -35,7 +36,7 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(
-      :seller_id, :categories_id, :name, :description, :postage, :region_id, :shipping_date, :price, :condition, :status, images_attributes: [:id, :image, :image_02, :image_03, :image_04, :image_05]
+      :seller_id, :categories_id, :name, :description, :postage, :region_id, :shipping_date, :price, :condition, :status, images_attributes: [:image]
     )
   end
 

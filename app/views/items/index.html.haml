@@ -96,11 +96,11 @@
     .items_title
       %p 新規投稿商品
       .items-wrapper
-        - @item.each do |item|
-          - @image = Image.find_by(item_id: item.id) # 複数あるimageが、どのアイテムのものか特定するためにしょうがなくここに書いてます。他にいい方法あれば教えてください！
+        - @items.each do |item|
           .item__box
             .item__box__image
-              = image_tag @image.image.url, class: "item__box__content"
+              - img = item.images[0]
+              = image_tag img.image.url, class: "item__box__content"
             .item__box__body
               .item__box__body__name
                 = item.name
