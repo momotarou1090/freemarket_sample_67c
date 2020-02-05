@@ -46,7 +46,10 @@ class ItemsController < ApplicationController
     @shipping_date = ShippingDate.find_by(id:@item.shipping_date_id)
   end
 
-  
+  def confirmation
+    @item = Item.find(params[:id])
+  end
+          
 private
   def item_params
     params.require(:item).permit(
@@ -54,10 +57,7 @@ private
     )
   end
       
-  def confirmation
-    @item = Item.find(params[:id])
-  end
-          
+
   def set_item
     @item = Item.find(params[:id])
   end
