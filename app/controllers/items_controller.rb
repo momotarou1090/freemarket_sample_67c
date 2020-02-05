@@ -39,16 +39,20 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @user = User.where(id: @item.seller_id)
+    @region = Region.find_by(id:@item.region_id)
+    @condition = Condition.find_by(id:@item.condition_id)
+    @postage = Postage.find_by(id:@item.postage_id)
+    @shipping_date = ShippingDate.find_by(id:@item.shipping_date_id)
   end
 
   def confirmation
-
+    @item = Item.find(params[:id])
   end
 
   private
   def item_params
     params.require(:item).permit(
-      :seller_id, :categories_id, :name, :description, :postage, :region_id, :shipping_date, :price, :condition, :status, images_attributes: [:image]
+      :seller_id, :categories_id, :name, :description, :postage_id, :region_id, :shipping_date_id, :price, :condition_id, :categories_id, :status, images_attributes: [:id, :image]
     )
   end
 

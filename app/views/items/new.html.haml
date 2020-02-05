@@ -40,6 +40,9 @@
                   .column_title__wrapper
                     %h1 商品の状態
                     %p 必須
+                  = f.select :condition_id, [["--", 0], ["新品、未使用", 1],["未使用に近い", 2],["目立った傷や汚れなし", 3],["やや傷や汚れあり",4],["傷や汚れあり",5],["全体的に状態が悪い",6]], class: "items_form-c"
+                  -# %select{name: "---", size: 6}
+                    -# %option(value="新品")
                   = f.select :condition, [["--", 0], ["新品、未使用", 1],["未使用に近い", 2],["目立った傷や汚れなし", 3],["やや傷や汚れあり",4],["傷や汚れあり",5],["全体的に状態が悪い",6]], class: "items_form-c"
             %hr
 
@@ -50,7 +53,7 @@
                   .column_title__wrapper
                     %h1 配送料の負担
                     %p 必須
-                = f.select :postage, [["--", 0 ], ["送料込み（出品者負担）", 1],["着払い（購入者負担）", 2]], class: "items_form-c"
+                = f.select :postage_id, [["--", 0 ], ["送料込み（出品者負担）", 1],["着払い（購入者負担）", 2]], class: "items_form-c"
                 .column_title
                   .column_title__wrapper
                     %h1 発送元の地域
@@ -60,7 +63,7 @@
                   .column_title__wrapper
                     %h1 発送までの日数
                     %p 必須
-                = f.select :shipping_date, [["--", 0],["1~2日で発送", 0],["2~3日で発送", 1],["4~7日で発送", 2]], class: "items_form-c"
+                = f.select :shipping_date_id, [["--", 0],["1~2日で発送",1],["2~3日で発送", 2],["4~7日で発送", 3]], class: "items_form-c"
             %hr
 
             .split
