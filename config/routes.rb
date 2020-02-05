@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   end
   root to: 'items#index'
   resources :items do
-    collection do
-      get 'confirmation', to: 'items#confirmation'
+    member do
+      get 'confirmation'
     end
   end
   resources :images, only: [:create]

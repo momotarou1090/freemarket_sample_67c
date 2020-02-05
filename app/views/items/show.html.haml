@@ -29,30 +29,34 @@
                       = user.nickname
                 %tr
                   %th カテゴリー
-                  %td テストカテゴリー
+                  %td 
+                    = @item.categories.name
                 %tr
                   %th ブランド
                   %td テストブランド
                 %tr
                   %th 商品の状態
                   %td
-                    = @item.condition
+                    = @item.condition.name
                 %tr
                   %th 配送料の負担
                   %td
-                    = @item.postage
+                    = @item.postage.name
                 %tr
                   %th 発送元の地域
                   %td
-                    = @item.region
+                    = @item.region.name
                 %tr
                   %th 発送日の目安
                   %td
-                    = @item.shipping_date
+                    = @item.shipping_date.name
         .delete-btn-wrapper
-          -if user_signed_in?
-            = link_to "商品の編集", edit_item_path, class:"edit_btn"
+          - if user_signed_in? && current_user.id == @item.seller_id
+            = link_to "編集する", edit_item_path, class:"edit_btn"
             = link_to "この商品を削除する", item_path(@item.id),method: :delete, class:"delete_btn"
+          - elsif user_signed_in?
+            = link_to "購入手続きに進む", confirmation_item_path, class:"edit_btn"
+          - else
           %ul.item_links
             .links_left
               = link_to "#", class: 'links_angle' do
