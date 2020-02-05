@@ -7,7 +7,7 @@
         %hr
         .item-review
           .item-review__image
-            = @item.name
+            = @item.price
           .item-review__wrapper
             .item-review__wrapper__title
               = @item.name
@@ -48,11 +48,11 @@
               変更する
           .delivery-destination__bottom
             .delivery-destination__bottom__post-code
-              〒145-0082
+              ="〒#{@address.post_code}"
             .delivery-destination__bottom__address
-              東京都大田区あああ
+              ="#{@address.prefecture}#{@address.city}#{@address.block}#{@address.building}"
             .delivery-destination__bottom__name
-              池田尚仁
+              ="#{@address.last_name} #{@address.first_name}"
         %hr
         .submit-btn
           購入する
