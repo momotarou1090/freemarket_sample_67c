@@ -1,4 +1,4 @@
-.column_title__edit{ //以下newページと構成が違うため切り出し（全体をつなげる際にリファクタリング必要）
+.column_title__edit{ //newページと差異のある箇所のみ記述 (全体をつなげる際要リファクタリング)
   display: flex;
   flex-direction: column;
   .column_title__edit__wrapper{
@@ -23,7 +23,7 @@
         width: 35px;
         text-align: center;
         padding: 1px;
-        margin-bottom: 10px;
+        margin-bottom: 10px;    
       }
     }
     .item_image{
