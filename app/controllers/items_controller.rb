@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :show,:update]
   
   def index
-
+    
   end
 
   def new
@@ -48,6 +48,9 @@ class ItemsController < ApplicationController
 
   def confirmation
     @item = Item.find(params[:id])
+    @user = User.find_by(params[:id])
+    @address = Address.find_by(user_id: current_user)
+    @image = Image.find_by(params[:id])
   end
           
 private
