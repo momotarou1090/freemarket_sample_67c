@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:edit, :show,:update]
   
   def index
 
@@ -16,14 +17,15 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
     @image = Image.find(params[:id])
   end
 
   def update
-    item= Item.find(params[:id])
-    item.update(item_params)
-    redirect_to root_path
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
 
 
@@ -37,7 +39,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
     @user = User.where(id: @item.seller_id)
   end
 
@@ -46,6 +47,11 @@ class ItemsController < ApplicationController
     params.require(:item).permit(
       :seller_id, :categories_id, :name, :description, :postage, :region_id, :shipping_date, :price, :condition, :status, images_attributes: [:id, :image]
     )
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
+
   end
 
 end

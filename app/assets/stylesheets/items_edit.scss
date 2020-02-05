@@ -1,9 +1,7 @@
-.column_title__edit{
+.column_title__edit{ //newページと差異のある箇所のみ記述 (全体をつなげる際要リファクタリング)
   display: flex;
   flex-direction: column;
   .column_title__edit__wrapper{
-    // display: flex;
-    // justify-content: flex-start;
     .column_title___edit__wrapper__text{
       display: flex;
       justify-content: flex-start;
@@ -13,8 +11,6 @@
         padding: 5px 10px;
         line-height: 25px;
         height: 25px;
-    
-
       }
       p{
         color: #fff;

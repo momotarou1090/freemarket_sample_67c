@@ -15,7 +15,6 @@
         .image_form
           = form_with model: @item do |f|
             = f.fields_for :images do |img|
-              -# =image_tag img.image.url
               = img.file_field :image,class: "items_form"
               
             %hr
