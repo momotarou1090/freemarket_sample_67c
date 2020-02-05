@@ -96,18 +96,18 @@
     .items_title
       %p 新規投稿商品
       .items-wrapper
-        - @items.each do |item|
-          .item__box
-            .item__box__image
-              - img = item.images[0]
-              = image_tag img.image.url, class: "item__box__content"
-            .item__box__body
-              .item__box__body__name
-                = item.name
-              .item__box__body__price-box
-                .item__box__body__price-box__price
-                  = item.price
-                .item__box__body__price-box__tax
+        -# - @items.each do |item|
+        -#   .item__box
+        -#     .item__box__image
+        -#       - img = item.images[0]
+        -#       = image_tag img.image.url, class: "item__box__content"
+        -#     .item__box__body
+        -#       .item__box__body__name
+        -#         = item.name
+        -#       .item__box__body__price-box
+        -#         .item__box__body__price-box__price
+        -#           = item.price
+        -#         .item__box__body__price-box__tax
                   (税込)
 
     .items_title
