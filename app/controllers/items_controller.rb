@@ -2,12 +2,12 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :show,:update]
   
   def index
-    @items = Item.order('id DESC').limit(3)
+    
   end
 
   def new
     @item = Item.new
-    4.times{ @item.images.build }
+    1.times{ @item.images.build }
   end
 
   def destroy
@@ -40,8 +40,10 @@ class ItemsController < ApplicationController
 
   def show
     @user = User.where(id: @item.seller_id)
-    @image_first = @item.images[0]
-    @image_others = @item.images[1..3]
+    @region = Region.find_by(id:@item.region_id)
+    @condition = Condition.find_by(id:@item.condition_id)
+    @postage = Postage.find_by(id:@item.postage_id)
+    @shipping_date = ShippingDate.find_by(id:@item.shipping_date_id)
   end
 
   def confirmation
