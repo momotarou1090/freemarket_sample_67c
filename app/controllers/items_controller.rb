@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :show,:update]
   
   def index
-    @items = Item.order('id DESC').limit(3)
+    @items = Item.order('id DESC').limit(3).where(status: "exibiting")
   end
 
   def new
