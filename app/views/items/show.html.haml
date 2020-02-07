@@ -18,16 +18,6 @@
         .item_box__price
           %p 
             = "¥#{@item.price}"
-          .item_box__body__images
-            .item_box__body__main_image
-              = image_tag @image_first.image.url, class:"img"
-            .item_box__body__other_image
-              - @image_others.each do |i|
-                = image_tag i.image.url, class: "img_others"
-          
-        .item_box__price
-          %p 
-            = "#{@item.price}円"
         .item_box__price_detail
           %p 税込（送料込み）
         .item_detail
@@ -45,6 +35,9 @@
                   %th カテゴリー
                   %td 
                     = @item.categories.name
+                %tr
+                  %th ブランド
+                  %td テストブランド
                 %tr
                   %th 商品の状態
                   %td
@@ -78,7 +71,21 @@
               = link_to "#", class: 'links_angle' do
                 後ろの商品
                 = icon('fa', 'angle-right')
-          = link_to "#{@item.categories.name}をもっとみる", "#", class: "category_link"
+          = link_to "＜カテゴリー名＞をもっとみる", "#", class: "category_link"
 
-= render 'shared/upper_footer'
+
+
+  .app-banner
+    .app-banner__box
+      .app-banner__box__text-top
+        誰でも簡単、人生を変えるフリマアプリ
+      .app-banner__box__text-center
+        今すぐ無料ダウンロード
+      .banner-wrapper
+        .banner-wrapper__box 
+          .banner-apple
+            アップルロゴ
+          .banner-google 
+            グーグルロゴ
+
 = render 'shared/footer'
