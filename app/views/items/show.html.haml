@@ -2,32 +2,25 @@
   .show_main
     .content
       .item_box
-        .item_box__item_title テストアイテム
+        .item_box__item_title 
+          =@item.name
         .item_box__body
           -if @item.buyer_id.present?
             .item_box__body__main_sold 
               .item_box__body__main_sold__text SOLD
           - else
-            .item_box__body__main_image
-              - @item.images.each do |img|
-                = image_tag img.image.url
-          %ul.item_box__body__sub_images
-            %li.item_box__body__sub_image1
-            %li.item_box__body__sub_image2
-            %li.item_box__body__sub_image3
-        .item_box__price
-          %p 
-            = "¥#{@item.price}"
-          .item_box__body__images
-            .item_box__body__main_image
-              = image_tag @image_first.image.url, class:"img"
-            .item_box__body__other_image
-              - @image_others.each do |i|
-                = image_tag i.image.url, class: "img_others"
+            .item_box__body__images
+              .item_box__body__main_image
+                = image_tag @image_first.image.url, class:"img"
+              .item_box__body__other_image
+                - @image_others.each do |i|
+                  = image_tag i.image.url, class: "img_others"
+            
           
         .item_box__price
-          %p 
-            = "#{@item.price}円"
+          = "¥#{@item.price}"
+          
+        
         .item_box__price_detail
           %p 税込（送料込み）
         .item_detail

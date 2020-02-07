@@ -8,7 +8,7 @@
       height: 100%;
       width: 700px;
       margin: 0 auto;
-      .item_box{
+      .item_box {
         height: 100%;
         padding: 24px 40px 0px;
         position: relative;
@@ -60,16 +60,14 @@
             }
           }
         }
-      
+        }
         
         &__price  {
-          p {
             font-size: 46px;
             font-weight: bold;
             text-align: center;
             margin-top: 100px;
             display: block;
-          }
         }
         &__price_detail {
           p {
