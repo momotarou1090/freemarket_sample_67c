@@ -4,6 +4,20 @@
       .item_box
         .item_box__item_title テストアイテム
         .item_box__body
+          -if @item.buyer_id.present?
+            .item_box__body__main_sold 
+              .item_box__body__main_sold__text SOLD
+          - else
+            .item_box__body__main_image
+              - @item.images.each do |img|
+                = image_tag img.image.url
+          %ul.item_box__body__sub_images
+            %li.item_box__body__sub_image1
+            %li.item_box__body__sub_image2
+            %li.item_box__body__sub_image3
+        .item_box__price
+          %p 
+            = "¥#{@item.price}"
           .item_box__body__images
             .item_box__body__main_image
               = image_tag @image_first.image.url, class:"img"
@@ -48,11 +62,12 @@
                   %td
                     = @item.shipping_date.name
         .delete-btn-wrapper
-          - if user_signed_in? && current_user.id == @item.seller_id
+          - if @item.buyer_id.present?
+          - elsif user_signed_in? && current_user.id == @item.seller_id
             = link_to "編集する", edit_item_path, class:"edit_btn"
             = link_to "この商品を削除する", item_path(@item.id),method: :delete, class:"delete_btn"
           - elsif user_signed_in?
-            = link_to "購入手続きに進む", confirmation_item_path, class:"edit_btn"
+            = link_to "購入手続きに進む", item_purchase_index_path(@item.id), class:"edit_btn"
           - else
           %ul.item_links
             .links_left
