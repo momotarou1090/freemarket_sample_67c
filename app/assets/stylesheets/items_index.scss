@@ -211,13 +211,16 @@
           padding: 10px;
           &__name{
             font-size: 16px;
+            color: black;
           }
           &__price-box{
             &__price{
               font-size: 16px;
+              color: black;
             }
             &__tax{
               font-size: 10px;
+              color: black;
             }
           }
         }
