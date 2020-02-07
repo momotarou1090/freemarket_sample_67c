@@ -46,12 +46,6 @@ class ItemsController < ApplicationController
     @shipping_date = ShippingDate.find_by(id:@item.shipping_date_id)
   end
 
-  def confirmation
-    @item = Item.find(params[:id])
-    @user = User.find_by(params[:id])
-    @address = Address.find_by(user_id: current_user)
-    @image = Image.find_by(params[:id])
-  end
           
 private
   def item_params
