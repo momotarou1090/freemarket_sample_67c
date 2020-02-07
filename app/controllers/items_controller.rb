@@ -44,7 +44,6 @@ class ItemsController < ApplicationController
     @condition = Condition.find_by(id:@item.condition_id)
     @postage = Postage.find_by(id:@item.postage_id)
     @shipping_date = ShippingDate.find_by(id:@item.shipping_date_id)
-    
   end
 
           
