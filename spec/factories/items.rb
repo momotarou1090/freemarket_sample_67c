@@ -11,6 +11,7 @@ FactoryBot.define do
     seller_id         {1}
     status            {"exibiting"}
     categories_id     {1}
+    created_at        { Faker::Time.between(from: DateTime.now - 2, to: Datetime.now) }
   end
 
 end

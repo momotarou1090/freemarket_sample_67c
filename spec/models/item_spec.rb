@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 describe Item do
-  describe '#create' do
 
+  describe '#create' do
     # 1.nameが空だとitemの登録ができない
     it "is invalid without a name" do
       item = build(:item, name: "")
@@ -85,6 +85,6 @@ describe Item do
       item = build(:item)
       expect(item).to be_valid
     end
-    
+        
   end
 end
