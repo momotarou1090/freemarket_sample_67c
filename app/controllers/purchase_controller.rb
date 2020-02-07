@@ -4,6 +4,7 @@ class PurchaseController < ApplicationController
 
   def index
     card = Card.where(user_id: current_user.id).first
+
     @item = Item.find(params[:item_id])
     @address = Address.find_by(user_id: current_user)
     #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
@@ -35,6 +36,7 @@ class PurchaseController < ApplicationController
     @item = Item.find(params[:item_id])
     @item_purchaser= Item.find(params[:item_id])
     @item_purchaser.update( buyer_id: current_user.id)
+    @item.update( status: "closed")
   end
 
 end
