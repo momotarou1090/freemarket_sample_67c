@@ -11,5 +11,4 @@ class Item < ApplicationRecord
     belongs_to_active_hash :shipping_date
   
     validates :name, :price, :condition_id, :postage_id, :region_id, :shipping_date_id, :description, :seller_id, :status, :categories_id, presence: true
-    
 end

@@ -10,8 +10,9 @@
             .column_title___edit__wrapper__text
               %h1 出品画像
               %p 必須
-            =image_tag @image.image.url,class:"item_image"
-          %span 最大10枚まで登録できます
+              %span 最大4枚まで登録できます
+            - @images.each do |image|
+              = image_tag image.image.url, class:"item_image"
         .image_form
           = form_with model: @item do |f|
             = f.fields_for :images do |img|
@@ -43,8 +44,7 @@
                     %h1 商品の状態
                     %p 必須
                   = f.select :condition, [["--", 0], ["新品、未使用", 1],["未使用に近い", 2],["目立った傷や汚れなし", 3],["やや傷や汚れあり",4],["傷や汚れあり",5],["全体的に状態が悪い",6]], class: "items_form-c"
-                  -# %select{name: "---", size: 6}
-                    -# %option(value="新品")
+
             %hr
 
             .split
