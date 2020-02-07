@@ -10,7 +10,7 @@
       margin: 0 auto;
       .item_box{
         height: 100%;
-        padding: 24px 40px 40px;
+        padding: 24px 40px 0px;
         position: relative;
         background-color: white;
         &__item_title {
@@ -23,6 +23,27 @@
           width: 560px;
           height: 443px;
           margin: 0 auto;
+          &__main_sold {
+            height: 430px;
+            width: 430px;
+            margin: 0 auto;
+            background-color: #3CCACE;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &__text {
+              font-size: 75px;
+              color: white;
+            }
+          }
+          &__main_image {
+            height: 430px;
+            width: 430px;
+            margin: 0 auto;
+            img{
+            height: 430px;
+            width: 430px;
+          }
           &__main_image {           
             .img {
             height: 400px;
@@ -141,3 +162,5 @@
     }
   }
 }
+
+
