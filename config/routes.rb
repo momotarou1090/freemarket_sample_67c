@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
   end
   root to: 'items#index'
+
   resources :items do
     resources :purchase, only: [:index] do
       collection do
@@ -14,6 +15,10 @@ Rails.application.routes.draw do
         get 'done', to: 'purchase#done'
       end
     end
+      collection do  #Ajaxで動くアクションのルートを作成
+        get 'get_category_children', defaults: { format: 'json' }
+        get 'get_category_grandchildren', defaults: { format: 'json' }
+      end
   end
   resources :images, only: [:create]
 

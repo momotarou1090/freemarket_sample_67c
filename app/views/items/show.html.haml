@@ -37,7 +37,7 @@
                 %tr
                   %th カテゴリー
                   %td 
-                    = @item.categories.name
+                    = @item.category.name
                 %tr
                   %th 商品の状態
                   %td
@@ -71,7 +71,7 @@
               = link_to "#", class: 'links_angle' do
                 後ろの商品
                 = icon('fa', 'angle-right')
-          = link_to "#{@item.categories.name}をもっとみる", "#", class: "category_link"
+          = link_to "#{@item.category.name}をもっとみる", "#", class: "category_link"
 
 = render 'shared/upper_footer'
 = render 'shared/footer'

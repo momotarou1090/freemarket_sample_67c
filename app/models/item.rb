@@ -6,9 +6,9 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to_active_hash :region
     belongs_to_active_hash :condition
-    belongs_to_active_hash :categories
+    belongs_to_active_hash :category
     belongs_to_active_hash :postage
     belongs_to_active_hash :shipping_date
   
-    validates :name, :price, :condition_id, :postage_id, :region_id, :shipping_date_id, :description, :seller_id, :status, :categories_id, presence: true
+    validates :name, :price, :condition_id, :postage_id, :region_id, :shipping_date_id, :description, :seller_id, :status, :category_id, presence: true
 end
