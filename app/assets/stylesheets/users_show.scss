@@ -1,18 +1,14 @@
-
 .out-area-grey{
-  background-color: #f8f8f8;
+  background-color: $light_gray;
   padding-top: 2px;
 }
 .users-detail{
   width: 700px;
-  margin: 40px auto;
-  
-  background-color: #fff;
+  margin: 40px auto;  
+  background-color: $white;
   &__photo{
-    border: solid 1px;
-    // background-color: springgreen;
     padding: 50px 0 0;
-    // border-radius: 50%;
+    bottom: 50%;
     &-box{
       margin: 0 260px;
       width: 180px;
@@ -23,33 +19,38 @@
     }
   }
     &-title{
-      // background-color: steelblue;
       margin: 8px 0 16px;
-      font-size: 18px;
-      font-weight: 400;
       text-align: center;
+      font-size: 50px;
+      font-weight: bold;
     }
     &-score{
-      // background-color: yellow;
       margin: 8px 0 16px;
       padding-bottom: 30px;
       text-align: center;
       font-weight: 600;
+      margin: 0 10px 0 0 ;
     }
+
+// リンクアイコン部分
 .item-social-media-box{
-  // background-color: olive;
-  border: solid 1px;
+  background-color: $white;
   margin: 24px auto;
   padding: 32px 0 24px;
   width: 700px;
   text-align: center;
   display: inline-block;
-  .icon {
+  .icon-face {
     font-weight: 900;
     font-weight: bold;
-    color: rgb(90, 216, 6);
+    color: rgb(57, 75, 230);
     font-size: 3em;
-
+  }
+  .icon-twitter {
+    font-weight: 900;
+    font-weight: bold;
+    color: rgb(108, 146, 228);
+    font-size: 3em;
   }
   .fa-line{
     font-weight: 900;
@@ -57,43 +58,43 @@
     color: rgb(90, 216, 6);
     font-size: 3em;
   }
+  .fa-credit-card{
+    font-weight: 900;
+    font-weight: bold;
+    color: rgb(226, 117, 66);
+    font-size: 3em;
+  }
 }
-
 }
   .white{
-    // background-color: violet;
     text-align: center;
-    border: solid 1px;
     .icon2{
       color: #F44336;
       font-size: 2em;
       margin: 0 8px 0 8px;
     }
   }
-
   .item-title{
     font-size: 22px;
     font-weight: bold;
+    margin: 24px 0 8px;
   }
 
 // // //   // マイページ_出品アイテム一覧部分
   .items-wrapper{
     display: flex;
-    justify-content: center;
-    display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     .item__box{
-      background-color:red;
       display: flex;
       flex-direction: column;
       height: 270px;
       width: 200px;
       &__image{
-        background-color: blue;
+        background-color: $main_blue;
         height: 180px;
       }
       &__body{
-        padding: 10px;
         &__name{
           font-size: 16px;
         }
@@ -106,5 +107,17 @@
           }
         } 
       }  
+    }
+    .user__item__box__content{
+      height: 220px;
+      width: 220px;
+    }
+    .item__box__body{
+      width: 220px;
+      background-color: $white;
+    }
+    .item__box__body__name{
+      width: 220px;
+      background-color: $white;
     }
   }
