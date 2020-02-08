@@ -40,10 +40,6 @@ class ItemsController < ApplicationController
 
   def show
     @user = User.where(id: @item.seller_id)
-    @region = Region.find_by(id:@item.region_id)
-    @condition = Condition.find_by(id:@item.condition_id)
-    @postage = Postage.find_by(id:@item.postage_id)
-    @shipping_date = ShippingDate.find_by(id:@item.shipping_date_id)
     @image_first = @item.images[0]
     @image_others = @item.images[1..3]
   end

@@ -36,14 +36,6 @@
               color: white;
             }
           }
-          &__main_image {
-            height: 430px;
-            width: 430px;
-            margin: 0 auto;
-            img{
-            height: 430px;
-            width: 430px;
-          }
           &__main_image {           
             .img {
             height: 400px;
@@ -60,7 +52,7 @@
             }
           }
         }
-        }
+        
         
         &__price  {
             font-size: 46px;
