@@ -66,11 +66,11 @@ describe Item do
       expect(item.errors[:status]).to include("can't be blank")
     end
 
-    # 10.categories_idが空だとitemの登録ができない
-    it "is invalid without a categories_id" do
-      item = build(:item, categories_id: "")
+    # 10.category_idが空だとitemの登録ができない
+    it "is invalid without a category_id" do
+      item = build(:item, category_id: "")
       item.valid?
-      expect(item.errors[:categories_id]).to include("can't be blank")
+      expect(item.errors[:category_id]).to include("can't be blank")
     end
 
     # 11.condition_idが空だとitemの登録ができない
