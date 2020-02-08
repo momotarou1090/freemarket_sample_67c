@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   
   def index
     @items = Item.order('id DESC').limit(3).where(status: "exibiting")
+    @older_items = Item.order('id ASC').limit(3).where(status: "exibiting")
   end
 
   def new
