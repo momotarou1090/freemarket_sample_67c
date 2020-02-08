@@ -41,28 +41,19 @@ span {
   height: 100px;
   margin-bottom: 10px;
 }
-.items_form-c {
-  width: 400px;
-  height: 80px;
-  margin-bottom: 10px;
-}
-.items_form-d {
-  width: 200px;
-  height: 30px;
-  margin-bottom: 10px;
-}
 
-#item_condition {
+
+#item_condition_id {
   width: 400px;
   height: 40px;
 }
 
-#item_postage {
+#item_postage_id {
   width: 400px;
   height: 40px;
 }
 
-#item_shipping_date {
+#item_shipping_date_id {
   width: 400px;
   height: 40px;
 }
@@ -127,7 +118,7 @@ span {
     width: 35px;
     text-align: center;
     padding: 1px;
-    margin-bottom: 10px;
+    margin: 5px 10px 10px 0;
   }
 }
   .item_image{ //仮で1枚だけ表示しています

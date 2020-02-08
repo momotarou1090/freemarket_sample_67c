@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_04_081535) do
+ActiveRecord::Schema.define(version: 2020_02_06_032309) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "post_code", null: false
@@ -44,21 +44,33 @@ ActiveRecord::Schema.define(version: 2020_02_04_081535) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "credits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "card_number", null: false
+    t.integer "period_month", null: false
+    t.integer "period_year", null: false
+    t.integer "secure", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_credits_on_user_id"
+  end
+
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "image"
     t.bigint "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "image_05"
     t.index ["item_id"], name: "index_images_on_item_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.integer "price", null: false
-    t.string "condition", null: false
-    t.string "postage", null: false
+    t.string "condition_id", null: false
+    t.string "postage_id", null: false
     t.string "region_id", null: false
-    t.string "shipping_date", null: false
+    t.string "shipping_date_id", default: "", null: false
     t.text "description", null: false
     t.integer "seller_id", null: false
     t.integer "buyer_id"
@@ -86,11 +98,10 @@ ActiveRecord::Schema.define(version: 2020_02_04_081535) do
     t.string "phone_number", null: false
     t.string "last_name_kana", null: false
     t.string "first_name_kana", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["nickname"], name: "index_users_on_nickname"
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "credits", "users"
   add_foreign_key "images", "items"
 end

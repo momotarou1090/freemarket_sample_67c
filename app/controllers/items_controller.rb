@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:edit, :show,:update]
   
   def index
-    @items = Item.order('id DESC').limit(3)
+    @items = Item.order('id DESC').limit(3).where(status: "exibiting")
   end
 
   def new
@@ -15,16 +16,17 @@ class ItemsController < ApplicationController
     redirect_to root_path
   end
 
-  # def edit
-  #   @item = Item.find(params[:id])
-  #   @image = Image.find(params[:id])
-  # end
+  def edit
+    @images = @item.images
+  end
 
-  # def update
-  #   item= Item.find(params[:id])
-  #   item.update(item_params)
-  #   redirect_to root_path
-  # end
+  def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
 
 
   def create
@@ -37,19 +39,26 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
     @user = User.where(id: @item.seller_id)
+    @region = Region.find_by(id:@item.region_id)
+    @condition = Condition.find_by(id:@item.condition_id)
+    @postage = Postage.find_by(id:@item.postage_id)
+    @shipping_date = ShippingDate.find_by(id:@item.shipping_date_id)
+    @image_first = @item.images[0]
+    @image_others = @item.images[1..3]
   end
 
-  def confirmation
-
-  end
-
-  private
+          
+private
   def item_params
     params.require(:item).permit(
-      :seller_id, :categories_id, :name, :description, :postage, :region_id, :shipping_date, :price, :condition, :status, images_attributes: [:image]
+      :seller_id, :categories_id, :name, :description, :postage_id, :region_id, :shipping_date_id, :price, :condition_id, :categories_id, :status, images_attributes: [:id, :image]
     )
+  end
+      
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 
 end

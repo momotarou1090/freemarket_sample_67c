@@ -1,0 +1,64 @@
+.main
+  .show_main
+    .content
+      .item_box
+        .item_box__item_title
+          購入内容の確認
+        %hr
+        .item-review
+          .item-review__image
+            = @item.price
+          .item-review__wrapper
+            .item-review__wrapper__title
+              = @item.name
+            .item-review__wrapper__price
+              = @item.price        
+        %hr
+        .payment-amount
+          .payment-amount__title
+            支払金額
+          .payment-amount__amount
+            = @item.price
+        %hr
+
+        .payment-methods
+          .payment-methods__top
+            .title
+              %h1 支払方法
+            .btn
+              %h2 変更する
+          .payment-methods__bottom
+          
+            .payment-methods__bottom__card-no
+              - if @default_card_information.blank?
+                %br /
+              - else
+                -#以下カード情報を表示
+                = "**** **** **** " + @default_card_information.last4
+                - exp_month = @default_card_information.exp_month.to_s
+                - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                = exp_month + " / " + exp_year
+              %br
+        %hr
+        .delivery-destination
+          = form_with model: @item do |f|
+            = f.hidden_field :buyer_id, value: current_user.id # ユーザーに入力させることなくseller_idをテーブルに保存させるため
+          .delivery-destination__top
+            .title
+              配達先
+            .btn
+              変更する
+          .delivery-destination__bottom
+            .delivery-destination__bottom__post-code
+              ="〒#{@address.post_code}"
+            .delivery-destination__bottom__address
+              ="#{@address.prefecture}#{@address.city}#{@address.block}#{@address.building}"
+            .delivery-destination__bottom__name
+              ="#{@address.last_name} #{@address.first_name}"
+        %hr
+        = form_tag(action: :pay, method: :post) do
+          .submit-btn
+            %button.purchase 購入する
+  
+
+

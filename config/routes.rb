@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'card/new'
-  get 'card/show'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
@@ -10,8 +8,11 @@ Rails.application.routes.draw do
   end
   root to: 'items#index'
   resources :items do
-    collection do
-      get 'confirmation', to: 'items#confirmation'
+    resources :purchase, only: [:index] do
+      collection do
+        post 'pay', to: 'purchase#pay'
+        get 'done', to: 'purchase#done'
+      end
     end
   end
   resources :images, only: [:create]

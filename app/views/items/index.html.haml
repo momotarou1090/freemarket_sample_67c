@@ -97,25 +97,26 @@
       %p 新規投稿商品
       .items-wrapper
         - @items.each do |item|
-          .item__box
-            .item__box__image
-              - img = item.images[0]
-              = image_tag img.image.url, class: "item__box__content"
-            .item__box__body
-              .item__box__body__name
-                = item.name
-              .item__box__body__price-box
-                .item__box__body__price-box__price
-                  = item.price
-                .item__box__body__price-box__tax
-                  (税込)
+          = link_to item_path(item.id) do
+            .item__box
+              .item__box__image
+                - img = item.images[0]
+                = image_tag img.image.url, class: "item__box__content"
+              .item__box__body
+                .item__box__body__name
+                  = item.name
+                .item__box__body__price-box
+                  .item__box__body__price-box__price
+                    = "#{item.price}円"
+                  .item__box__body__price-box__tax
+                    (税込)
 
     .items_title
       %p アーカイバ
       .items-wrapper
         .item__box
           .item__box__image
-            イメージ
+            
           .item__box__body
             .item__box__body__name
               商品名

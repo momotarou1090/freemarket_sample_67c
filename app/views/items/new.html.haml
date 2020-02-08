@@ -9,7 +9,7 @@
           .column_title__wrapper
             %h1 出品画像
             %p 必須
-          %span 最大5枚まで登録できます
+          %span 最大4枚まで登録できます
         .image_form
           = form_with model: @item do |f|
             = f.fields_for :images do |img|
@@ -35,12 +35,13 @@
                   .column_title__wrapper
                     %h1 カテゴリ
                     %p 必須
-                = f.select :categories_id, [["--", 0], ["レディース", 1],["メンズ", 2],["ベビー・キッズ", 3],["インテリア・住まい・小物",4],["本・音楽・ゲーム",5],["おもちゃ・ホビー・グッズ",6],["コスメ・香水・美容",7],["家電・スマホ・カメラ", 8],["スポーツ・レジャー",9],["ハンドメイド", 10],["チケット", 11],["自動車・オートバイ", 12],["その他",13]], class: "items_form-c"
+                = f.select :categories_id, [["--", 0], ["レディース", 1],["メンズ", 2],["ベビー・キッズ", 3],["インテリア・住まい・小物",4],["本・音楽・ゲーム",5],["おもちゃ・ホビー・グッズ",6],["コスメ・香水・美容",7],["家電・スマホ・カメラ", 8],["スポーツ・レジャー",9],["ハンドメイド", 10],["チケット", 11],["自動車・オートバイ", 12],["その他",13]]
                 .column_title
                   .column_title__wrapper
                     %h1 商品の状態
                     %p 必須
-                  = f.select :condition, [["--", 0], ["新品、未使用", 1],["未使用に近い", 2],["目立った傷や汚れなし", 3],["やや傷や汚れあり",4],["傷や汚れあり",5],["全体的に状態が悪い",6]], class: "items_form-c"
+                  = f.select :condition_id, [["--", 0], ["新品、未使用", 1],["未使用に近い", 2],["目立った傷や汚れなし", 3],["やや傷や汚れあり",4],["傷や汚れあり",5],["全体的に状態が悪い",6]]
+
             %hr
 
             .split
@@ -50,7 +51,7 @@
                   .column_title__wrapper
                     %h1 配送料の負担
                     %p 必須
-                = f.select :postage, [["--", 0 ], ["送料込み（出品者負担）", 1],["着払い（購入者負担）", 2]], class: "items_form-c"
+                = f.select :postage_id, [["--", 0 ], ["送料込み（出品者負担）", 1],["着払い（購入者負担）", 2]]
                 .column_title
                   .column_title__wrapper
                     %h1 発送元の地域
@@ -60,7 +61,7 @@
                   .column_title__wrapper
                     %h1 発送までの日数
                     %p 必須
-                = f.select :shipping_date, [["--", 0],["1~2日で発送", 0],["2~3日で発送", 1],["4~7日で発送", 2]], class: "items_form-c"
+                = f.select :shipping_date_id, [["--", 0],["1~2日で発送",1],["2~3日で発送", 2],["4~7日で発送", 3]]
             %hr
 
             .split
@@ -70,7 +71,7 @@
                   .column_title__wrapper
                     %h1 価格
                     %p 必須
-                = f.text_field :price,placeholder: "例) 300", class: "items_form-d"
+                = f.text_field :price,placeholder: "例) 300"
             %hr
             - if user_signed_in?
               = f.hidden_field :seller_id, value: current_user.id # ユーザーに入力させることなくseller_idをテーブルに保存させるため
