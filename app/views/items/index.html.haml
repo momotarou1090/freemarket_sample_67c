@@ -110,43 +110,46 @@
                       = "#{item.price}円"
                     .item__box__body__price-box__tax
                       (税込)
-
     .items_title
-      %p アーカイバ
+      %p 売れ残り商品
       .items-wrapper
-        .item__box
-          .item__box__image
-            
-          .item__box__body
-            .item__box__body__name
-              商品名
-            .item__box__body__price-box
-              .item__box__body__price-box__price
-                1000円
-              .item__box__body__price-box__tax
-                (税込)
-        .item__box
-          .item__box__image
-            イメージ
-          .item__box__body
-            .item__box__body__name
-              商品名
-            .item__box__body__price-box
-              .item__box__body__price-box__price
-                2000円
-              .item__box__body__price-box__tax
-                （税込）
-        .item__box
-          .item__box__image
-            イメージ
-          .item__box__body
-            .item__box__body__name
-              商品名
-            .item__box__body__price-box
-              .item__box__body__price-box__price
-                3000円
-              .item__box__body__price-box__tax
-                （税込）
+        - @older_items.each do |item|
+          = link_to item_path(item.id) do
+            .item__box
+              .item__box__image
+                - img = item.images[0]
+                = image_tag img.image.url, class: "item__box__content"
+              .item__box__body
+                .item__box__body__name
+                  = item.name
+                .item__box__body__price-box
+                  .item__box__body__price-box__price
+                    = "#{item.price}円"
+                  .item__box__body__price-box__tax
+                    (税込)
+
+        -# .item__box
+        -#   .item__box__image
+        -#     イメージ
+        -#   .item__box__body
+        -#     .item__box__body__name
+        -#       商品名
+        -#     .item__box__body__price-box
+        -#       .item__box__body__price-box__price
+        -#         2000円
+        -#       .item__box__body__price-box__tax
+        -#         （税込）
+        -# .item__box
+        -#   .item__box__image
+        -#     イメージ
+        -#   .item__box__body
+        -#     .item__box__body__name
+        -#       商品名
+        -#     .item__box__body__price-box
+        -#       .item__box__body__price-box__price
+        -#         3000円
+        -#       .item__box__body__price-box__tax
+        -#         （税込）
 //誰でも簡単、人生を変えるフリマアプリ部分
 .app-banner
   .app-banner__box

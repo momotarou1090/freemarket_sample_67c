@@ -184,6 +184,7 @@
     }
     .items_title{
       font-size: 24px;
+      margin-top: 30px;
       p{
         color: $main-blue;
         text-align: center;
@@ -199,7 +200,7 @@
         height: 270px;
         width: 200px;
         &__image{
-          background-color: blue;
+          background-color: lightgray;
           height: 180px;
           }
         &__content {
