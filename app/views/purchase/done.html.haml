@@ -1,6 +1,15 @@
-%h2 購入が完了しました！
-%p
-
- =@item.name
-%p 
-="¥#{@item.price}(送料込み)"
+.main
+  .show_main
+    .content
+      .item_box
+        .top-link
+          = link_to "トップへ戻る", root_path
+        .purchase-done-box
+          .purchase-done-box__message
+            購入が完了しました！
+          .purchase-done-box__item-name
+            =@item.name
+          .purchase-done-box__item-price
+            ="¥#{@item.price}(送料込み)"
+          .purchase-done-box__image
+            = image_tag @item.images[0].image.url

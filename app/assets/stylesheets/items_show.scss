@@ -1,7 +1,7 @@
 .main {
   width: 100%;
   .show_main {
-    height: 1350px;
+    height: 100%;
     padding: 100px;
     background-color: #f8f8f8;
     .content {
@@ -10,7 +10,7 @@
       margin: 0 auto;
       .item_box {
         height: 100%;
-        padding: 24px 40px 0px;
+        padding: 20px;
         position: relative;
         background-color: white;
         &__item_title {
@@ -21,7 +21,7 @@
         }
         &__body {
           width: 560px;
-          height: 443px;
+          // height: 443px;
           margin: 0 auto;
           &__main_sold {
             height: 430px;
@@ -58,7 +58,7 @@
             font-size: 46px;
             font-weight: bold;
             text-align: center;
-            margin-top: 100px;
+            margin-top: 30px;
             display: block;
         }
         &__price_detail {
@@ -98,7 +98,6 @@
         }
         .delete-btn-wrapper{
           align-items:flex-end;
-          height: 50px;
           width: 100%;
           .edit_btn{
             display: block;
@@ -126,11 +125,8 @@
             text-decoration: none;
             color:white;
               a{
-
               }
           }
-        }
-      
     .item_links {
       display: flex;
       justify-content: space-between;
@@ -148,6 +144,7 @@
       font-weight: bold;
       font-size: 22px;
     }
+  }
   }
     }
   }

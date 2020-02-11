@@ -90,37 +90,49 @@ span {
   line-height: 40px;
   border-radius: 5px;
   margin: 15px auto;
-
+  
 }
 
 .column_title {
   display: flex;
   flex-direction: column;
+  input{
+    border: none;
+    background-color: none;
+    border: solid 1px;
+    border-color: rgb(156, 155, 155);
+    
+  }
+      textarea{ //できれば角の線を消したい
+
+      }
   &__wrapper{
-    // background-color: yellow;
     display: flex;
     justify-content: flex-start;
-  h1 {
-    font-weight: bold;
-    font-size: 14px;
-    padding: 5px 10px;
-    line-height: 25px;
-    height: 25px;
+    h1 {
+      font-weight: bold;
+      font-size: 14px;
+      padding: 5px 10px;
+      line-height: 25px;
+      height: 25px;
+    }
+    p {
+      color: #fff;
+      font-weight: bold;
+      font-size: 14px;
+      background-color: $main_blue;
+      border-radius: 3px;
+      line-height: 25px;
+      height: 25px;
+      width: 35px;
+      text-align: center;
+      padding: 1px;
+      margin: 5px 10px 10px 0;
+    }
+    
+    
+    
   }
-  p {
-    color: #fff;
-    font-weight: bold;
-    font-size: 14px;
-    background-color: $main_blue;
-    border-radius: 3px;
-    line-height: 25px;
-    height: 25px;
-    width: 35px;
-    text-align: center;
-    padding: 1px;
-    margin: 5px 10px 10px 0;
-  }
-}
   .item_image{ //仮で1枚だけ表示しています
     height: 300px;
     width: 300px;
@@ -130,5 +142,41 @@ span {
 
 form{
   align-items: center;
+}
+
+
+.item_detail_right{
+  .listing-form-box{
+    .listing-product-detail__category{
+      .listing-default__label{
+        font-weight: bold;
+        font-size: 14px;
+        padding: 5px 10px;
+        line-height: 25px;
+        height: 25px;
+      }
+      .listing-default--require{
+        color: #fff;
+        font-weight: bold;
+        font-size: 14px;
+        background-color: $main_blue;
+        border-radius: 3px;
+        line-height: 25px;
+        width: 35px;
+        text-align: center;
+        padding: 4px;
+        margin: 5px 10px 10px 0;
+      }
+      .listing-select-wrapper{
+        .listing-select-wrapper__box{
+          .listing-select-wrapper__box--select{
+            margin-top: 10px;
+            width: 400px;
+            height: 40px;
+          }
+        }
+      }
+    }
+  }
 }
 

@@ -100,8 +100,7 @@
           = link_to item_path(item.id) do
             .item__box
               .item__box__image
-                - img = item.images[0]
-                = image_tag img.image.url, class: "item__box__content"
+                = image_tag item.images[0].image.url, class: "item__box__content"
                 .item__box__body
                   .item__box__body__name
                     = item.name.truncate(12)
