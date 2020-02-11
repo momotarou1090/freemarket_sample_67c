@@ -28,7 +28,7 @@
               .user-item__box__body
                 .user-item__box__body__name
                   商品名
-                  = sellor_items.name
+                  = sellor_items.name.truncate(12)
                   .user-item__box__body__price-box
                     .user-item__box__body__price-box__price
                     = "#{sellor_items.price}円"
