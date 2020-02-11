@@ -81,11 +81,11 @@
   }
 
 // // //   // マイページ_出品アイテム一覧部分
-  .items-wrapper{
+  .user-items-wrapper{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    .item__box{
+    .user-item__box{
       display: flex;
       flex-direction: column;
       height: 270px;
@@ -112,11 +112,11 @@
       height: 220px;
       width: 220px;
     }
-    .item__box__body{
+    .user-item__box__body{
       width: 220px;
       background-color: $white;
     }
-    .item__box__body__name{
+    .user-item__box__body__name{
       width: 220px;
       background-color: $white;
     }
