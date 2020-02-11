@@ -17,19 +17,22 @@
         %i.fab.fa-line
       = link_to new_card_path, class: "contents__btn" do
         %i.fas.fa-credit-card  
-    .user-item-title
+    .user-items_title
       この出品者の商品
-    .user-items-wrapper
-      - @items.each do |sellor_items|
-        .user-item__box
-          .user-item__box__body
+      .user-items-wrapper
+        - @items.each do |sellor_items|
+          .user-item__box
             .user-item__box__image
               - img = sellor_items.images[0]
-              = image_tag img.image.url, class: "user__item__box__content"
-              .user-item__box__body__name
-                商品名
-                = sellor_items.name
-              .user-item__box__body__price-box__tax
-                (税込)
-                = sellor_items.price
+              = image_tag img.image.url, class: "user-item__box__image__content"
+              .user-item__box__body
+                .user-item__box__body__name
+                  商品名
+                  = sellor_items.name.truncate(12)
+                  .user-item__box__body__price-box
+                    .user-item__box__body__price-box__price
+                    = "#{sellor_items.price}円"
+                    .user-item__box__body__price-box__tax
+                    (税込)
+
   = render 'shared/footer'
