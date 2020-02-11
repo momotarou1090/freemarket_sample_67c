@@ -1,0 +1,16 @@
+.main
+  .show_main
+    .content
+      .item_box
+
+        -@items.each do |item|
+          .item-dedail-box
+          .item-dedail-box__name
+            =item.name
+          .item-dedail-box__price
+            =item.price
+          .item-dedail-box__description
+            =item.description
+          .item-dedail-box__image
+            =image_tag item.images[0].image.url, class: "item-image"
+            = link_to "購入手続きに進む", item_purchase_index_path(item.id), class:"edit_btn"

@@ -73,6 +73,11 @@ class ItemsController < ApplicationController
     @image_others = @item.images[1..3]
   end
 
+  def search
+    @items = Item.search(params[:keyword])
+    
+  end
+
           
 private
   def item_params

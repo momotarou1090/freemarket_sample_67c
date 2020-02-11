@@ -11,4 +11,10 @@ class Item < ApplicationRecord
     belongs_to_active_hash :shipping_date
   
     validates :name, :price, :condition_id, :postage_id, :region_id, :shipping_date_id, :description, :seller_id, :status, :category_id, presence: true
+
+  def self.search(search)
+    return Item.all unless search
+    Item.where('name LIKE(?)',"%#{search}%").where(status: "exibiting")
+  end
+
 end

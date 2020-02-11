@@ -5,8 +5,9 @@
         = link_to (image_tag 'logo/logo.png'), items_path
       .header__wrapper__top__search-box
         .header__wrapper__top__search-box__window
-          = form_with model: @user, url: items_path, id: 'search-input-id', class: 'search-input', local: true do |f|
+          = form_with(url: search_items_path,local: true,method: :get,id: 'search-input-id', class: 'search-input') do |f|
             = f.text_field :keyword, placeholder: "キーワードから探す"
+            =f.submit "検索", class: "aaa"
         .header__wrapper__top__search-box__logo
           = link_to(icon('fa', 'search'),"#")
     .header__wrapper__bottom
