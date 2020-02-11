@@ -1,6 +1,4 @@
-// Place all the styles related to the purchase controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
 .purchase {
   color: white;
   background-color: red;
@@ -9,3 +7,139 @@
   width: 100%;
 }
 
+//購入内容の確認(purchase/index.html.haml)
+.main{
+  .show_main{
+    .content{
+      .item_box{
+        
+        &__item_title{
+        }
+        .item-review{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          &__main-image{
+   
+            img{
+              height: 400px;
+              width: 510px;
+            }
+          }
+          &__other-image{
+            display: flex;
+            justify-content: center;
+            img{
+              height:200px ;
+              width:170px ;
+            }
+            
+            
+          }
+        }
+        .item-title{
+
+        }
+        
+        .payment-amount{
+          margin: 20px 20px;
+          display: flex;
+      
+          &__title{
+            width: 65%;
+            font-size: 20px;
+
+            
+          }
+          &__amount{
+            width: 35%;
+            font-size: 30px;
+          }
+        }
+        .payment-methods{
+          margin: 20px 20px;
+          &__top{
+
+            display: flex;
+            justify-content: space-between;
+            margin-right: 50px;
+            .title{
+              
+            }
+            .btn{
+              color: $main-blue;
+            }
+            
+          }
+          &__bottom{
+            display: flex;
+            flex-direction: column;
+            &__card-no{
+            }
+          }
+        }
+        .delivery-destination{
+          margin: 20px 20px;
+          &__top{
+            display: flex;
+            justify-content: space-between;
+            margin-right: 50px;
+            .title{
+            }
+            .btn{
+              color: $main-blue;
+            }
+          }
+          &__bottom{
+            display: flex;
+            flex-direction: column;
+            &__post-code{
+
+            }
+            &__address{
+
+            }
+            &__name{
+
+            }
+
+          }
+        }
+        form{
+          .submit-btn{
+            button{
+              font-size: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//購入内容の確認(purchase/done.html.haml)
+.top-link{
+  width: 100%;
+  height: 40px;
+  a{
+    text-align: center;
+    display: block;
+  }
+}
+.purchase-done-box{
+  &__message{
+    text-align: center;
+    font-size: 35px;
+  }
+  &__item-name{
+    text-align: center;
+    font-size: 25px;
+  }
+  &__item-price{
+    text-align: center;
+    font-size: 25px;
+  }
+  &__image{
+
+  }
+}

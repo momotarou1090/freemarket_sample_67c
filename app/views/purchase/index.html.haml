@@ -4,16 +4,16 @@
       .item_box
         .item_box__item_title
           購入内容の確認
-        %hr
+          %hr
         .item-review
-          .item-review__image
-            = @item.price
-          .item-review__wrapper
-            .item-review__wrapper__title
-              = @item.name
-            .item-review__wrapper__price
-              = @item.price        
-        %hr
+          .item-review__main-image
+            = image_tag @item.images[0].image.url
+          .item-review__other-image
+            = image_tag @item.images[1].image.url
+            = image_tag @item.images[2].image.url
+            = image_tag @item.images[3].image.url
+        .item-title
+          = @item.name
         .payment-amount
           .payment-amount__title
             支払金額
@@ -55,7 +55,6 @@
               ="#{@address.prefecture}#{@address.city}#{@address.block}#{@address.building}"
             .delivery-destination__bottom__name
               ="#{@address.last_name} #{@address.first_name}"
-        %hr
         = form_tag(action: :pay, method: :post) do
           .submit-btn
             %button.purchase 購入する
