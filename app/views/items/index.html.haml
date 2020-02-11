@@ -104,7 +104,7 @@
                 = image_tag img.image.url, class: "item__box__content"
                 .item__box__body
                   .item__box__body__name
-                    = item.name
+                    = item.name.truncate(12)
                   .item__box__body__price-box
                     .item__box__body__price-box__price
                       = "#{item.price}円"
