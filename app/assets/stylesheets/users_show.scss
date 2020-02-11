@@ -2,22 +2,22 @@
   background-color: $light_gray;
   padding-top: 2px;
 }
-.users-detail{
-  width: 700px;
-  margin: 40px auto;  
-  background-color: $white;
-  &__photo{
-    padding: 50px 0 0;
-    bottom: 50%;
-    &-box{
-      margin: 0 260px;
-      width: 180px;
-      height: 180px;
-      .icon1{
-        font-size: 100px;
+  .users-detail{
+    width: 700px;
+    margin: 40px auto;  
+    background-color: $white;
+    &__photo{
+      padding: 50px 0 0;
+      bottom: 50%;
+      &-box{
+        margin: 0 260px;
+        width: 180px;
+        height: 180px;
+        .icon1{
+          font-size: 100px;
+        }
       }
     }
-  }
     &-title{
       margin: 8px 0 16px;
       text-align: center;
@@ -31,41 +31,41 @@
       font-weight: 600;
       margin: 0 10px 0 0 ;
     }
-
-// リンクアイコン部分
-.item-social-media-box{
-  background-color: $white;
-  margin: 24px auto;
-  padding: 32px 0 24px;
-  width: 700px;
-  text-align: center;
-  display: inline-block;
-  .icon-face {
-    font-weight: 900;
-    font-weight: bold;
-    color: rgb(57, 75, 230);
-    font-size: 3em;
+    
+    // リンクアイコン部分
+    .item-social-media-box{
+      background-color: $white;
+      margin: 24px auto;
+      padding: 32px 0 24px;
+      width: 700px;
+      text-align: center;
+      display: inline-block;
+      .icon-face {
+        font-weight: 900;
+        font-weight: bold;
+        color: rgb(57, 75, 230);
+        font-size: 3em;
+      }
+      .icon-twitter {
+        font-weight: 900;
+        font-weight: bold;
+        color: rgb(108, 146, 228);
+        font-size: 3em;
+      }
+      .fa-line{
+        font-weight: 900;
+        font-weight: bold;
+        color: rgb(90, 216, 6);
+        font-size: 3em;
+      }
+      .fa-credit-card{
+        font-weight: 900;
+        font-weight: bold;
+        color: rgb(226, 117, 66);
+        font-size: 3em;
+      }
+    }
   }
-  .icon-twitter {
-    font-weight: 900;
-    font-weight: bold;
-    color: rgb(108, 146, 228);
-    font-size: 3em;
-  }
-  .fa-line{
-    font-weight: 900;
-    font-weight: bold;
-    color: rgb(90, 216, 6);
-    font-size: 3em;
-  }
-  .fa-credit-card{
-    font-weight: 900;
-    font-weight: bold;
-    color: rgb(226, 117, 66);
-    font-size: 3em;
-  }
-}
-}
   .white{
     text-align: center;
     .icon2{
@@ -79,45 +79,45 @@
     font-weight: bold;
     margin: 24px 0 8px;
   }
-
-// // //   // マイページ_出品アイテム一覧部分
+  
+  // // //   // マイページ_出品アイテム一覧部分
   .user-items-wrapper{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     .user-item__box{
+      background-color: white;
       display: flex;
       flex-direction: column;
       height: 270px;
       width: 200px;
       &__image{
-        background-color: $main_blue;
+        background-color: lightgray;
         height: 180px;
       }
-      &__body{
-        &__name{
-          font-size: 16px;
+        .user-item__box__image__content{
+          width: 200px;
+          height: 180px;
+          object-fit: cover;
         }
-        &__price-box{
-          &__price{
-            font-size: 16px;
-          }
-          &__tax{
-            font-size: 10px;
-          }
-        } 
-      }  
-    }
-    .user__item__box__content{
-      height: 220px;
-      width: 220px;
-    }
-    .user-item__box__body{
-      width: 220px;
-      background-color: $white;
-    }
-    .user-item__box__body__name{
-      width: 220px;
-      background-color: $white;
-    }
-  }
+
+      &__body{
+        padding: 10px;
+        width: 200px;
+        &__name{
+          font-size: 10px;
+          color: black;
+        }
+      }
+      &__price-box{
+        &__price{
+          font-size: 16px;
+          color: black;
+        }
+        &__tax{
+          font-size: 10px;
+          color: black;
+        }  
+      }
+    } 
+  }  
