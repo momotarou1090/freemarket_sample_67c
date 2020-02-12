@@ -28,33 +28,51 @@
         border: rgb(228, 226, 226) solid 1px;
         margin-left: auto;
         width: 100%;
-        display: flex;
-        justify-content: space-between;
         border-radius: 3px;
         &__window{
           width: 100%;
           color: rgb(71, 67, 67);
           form{
+            display: flex;
+            justify-content: space-between;
             input{
               padding-left:5px ;
               height: 35px;
               border:solid 0px;
               width: 100%;
             }
+            .icon-wrapper{
+              padding: 3px;
+              height: 35px;
+              width: 35px;
+              background-color: $main_blue;
+              position: relative;
+              border-radius: 3px;
+            .icon{
+              width: 30px;
+              background:image-url('icon/icon-search.png');
+              background-size: cover;
+              height: 25px;
+              width: 25px;
+              position: absolute;
+              left: 8px;
+              top: 8px;
+            }
+          }
           }
         }
-        &__logo{
-          width: 50px;
-          line-height: 35px;
-          background-color: $main_blue;
-          border-radius: 3px;
-          a{
-            padding-left: 15px;
-            text-decoration:none;
-            display: block;
-            color: white;
-          }
-        }
+        // &__logo{
+        //   width: 50px;
+        //   line-height: 35px;
+        //   background-color: $main_blue;
+        //   border-radius: 3px;
+        //   a{
+        //     padding-left: 15px;
+        //     text-decoration:none;
+        //     display: block;
+        //     color: white;
+        //   }
+        // }
       }
     }
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_10_024345) do
+ActiveRecord::Schema.define(version: 2020_02_11_151949) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "post_code", null: false
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2020_02_10_024345) do
     t.bigint "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "image_05"
     t.index ["item_id"], name: "index_images_on_item_id"
   end
 
@@ -60,13 +61,15 @@ ActiveRecord::Schema.define(version: 2020_02_10_024345) do
     t.string "region_id", null: false
     t.string "shipping_date_id", null: false
     t.text "description", null: false
-    t.integer "seller_id", null: false
-    t.integer "buyer_id"
     t.string "status", null: false
     t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "seller_id"
+    t.bigint "buyer_id"
+    t.index ["buyer_id"], name: "fk_rails_bac2cf3aef"
     t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["seller_id"], name: "fk_rails_62a5ac8242"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -93,4 +96,6 @@ ActiveRecord::Schema.define(version: 2020_02_10_024345) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "images", "items"
+  add_foreign_key "items", "users", column: "buyer_id"
+  add_foreign_key "items", "users", column: "seller_id"
 end
