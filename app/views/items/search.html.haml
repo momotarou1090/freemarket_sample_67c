@@ -1,16 +1,30 @@
-.main
-  .show_main
-    .content
-      .item_box
-
+.main-b
+  .show_main-b
+    .content-b
+      .item_box-b
+        .item_box-b__title
+          検索結果
+        .item_box-b__result      
+          ="#{@items.count}個の商品が検索されました"
         -@items.each do |item|
-          .item-dedail-box
-          .item-dedail-box__name
-            =item.name
-          .item-dedail-box__price
-            =item.price
-          .item-dedail-box__description
-            =item.description
-          .item-dedail-box__image
-            =image_tag item.images[0].image.url, class: "item-image"
-            = link_to "購入手続きに進む", item_purchase_index_path(item.id), class:"edit_btn"
+          .item-detail-box
+            .item-detail-box__images
+              .item-detail-box__images__image
+                =image_tag item.images[0].image.url, class: "item-image"
+              .item-detail-box__images__image
+                =image_tag item.images[1].image.url, class: "item-image"
+              .item-detail-box__images__image
+                =image_tag item.images[2].image.url, class: "item-image"
+              .item-detail-box__images__image
+                =image_tag item.images[3].image.url, class: "item-image"
+            .item-detail-box__info
+              .item-detail-box__info__name
+                ="商品名: #{item.name}"
+              .item-detail-box__info__price
+                ="価格: #{item.price}"
+              .item-detail-box__info__seller
+                ="出品者: #{item.user.nickname}"
+              .item-detail-box__info__description
+                ="商品の説明:#{item.description}"
+              .item-detail-box__info__link
+                = link_to "購入手続きに進む", item_purchase_index_path(item.id)

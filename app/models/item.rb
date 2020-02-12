@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
 
   has_many :images, dependent: :destroy
+  belongs_to :user,foreign_key: 'seller_id'
 
   accepts_nested_attributes_for :images # item保存時に、imageテーブルにレコードを保存するため
   extend ActiveHash::Associations::ActiveRecordExtensions
