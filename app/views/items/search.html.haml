@@ -10,13 +10,9 @@
           .item-detail-box
             .item-detail-box__images
               .item-detail-box__images__image
-                =image_tag item.images[0].image.url, class: "item-image"
-              .item-detail-box__images__image
-                =image_tag item.images[1].image.url, class: "item-image"
-              .item-detail-box__images__image
-                =image_tag item.images[2].image.url, class: "item-image"
-              .item-detail-box__images__image
-                =image_tag item.images[3].image.url, class: "item-image"
+                - item.images.each do |image|
+                  =image_tag image.image.url, class: "item-image"
+                            
             .item-detail-box__info
               .item-detail-box__info__name
                 ="商品名: #{item.name}"
