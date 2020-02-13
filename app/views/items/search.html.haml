@@ -23,4 +23,7 @@
               .item-detail-box__info__description
                 ="商品の説明:#{item.description}"
               .item-detail-box__info__link
-                = link_to "購入手続きに進む", item_purchase_index_path(item.id)
+                - if user_signed_in?
+                  = link_to "購入手続きに進む", item_purchase_index_path(item.id)
+                - else
+                  = link_to "購入手続きに進む", user_session_path
