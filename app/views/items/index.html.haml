@@ -143,10 +143,16 @@
 
 
 .post-item-btn
-  = link_to new_item_path, class:"post-item-btn"  do
-    .post-item-btn__title
-      出品する
-    .post-item-btn__image
-      = image_tag 'icon/icon_camera.png', size: '50x50'
-
+  - if user_signed_in?
+    = link_to new_item_path, class:"post-item-btn"  do
+      .post-item-btn__title
+        出品する
+      .post-item-btn__image
+        = image_tag 'icon/icon_camera.png', size: '50x50'
+  - else
+    = link_to user_session_path, class:"post-item-btn"  do
+      .post-item-btn__title
+        出品する
+      .post-item-btn__image
+        = image_tag 'icon/icon_camera.png', size: '50x50'
 = render 'shared/footer'
