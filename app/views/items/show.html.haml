@@ -32,8 +32,7 @@
                 %tr
                   %th 出品者
                   %td
-                    - @user.each do |user|
-                      = user.nickname
+                    = @user[0].nickname
                 %tr
                   %th カテゴリー
                   %td 
