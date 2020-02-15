@@ -30,32 +30,34 @@ class ItemsController < ApplicationController
     @images = @item.images
     @item = Item.find(params[:id])
     
+    @parents = Category.where(ancestry:nil)
+
     # 登録されている商品の孫カテゴリーのレコードを取得
     @selected_grandchild_category = @item.category
     # 孫カテゴリー選択肢用の配列作成
     @category_grandchildren_array = [{id: "---", name: "---"}]
     Category.find("#{@selected_grandchild_category.id}").siblings.each do |grandchild|
-    grandchildren_hash = {id: "#{grandchild.id}", name: "#{grandchild.name}"}
-    @category_grandchildren_array << grandchildren_hash
-  end
+      grandchildren_hash = {id: "#{grandchild.id}", name: "#{grandchild.name}"}
+      @category_grandchildren_array << grandchildren_hash
+     end
   
-  # 選択されている子カテゴリーのレコードを取得
-  @selected_child_category = @selected_grandchild_category.parent
-  # 子カテゴリー選択肢用の配列作成
-  @category_children_array = [{id: "---", name: "---"}]
-  Category.find("#{@selected_child_category.id}").siblings.each do |child|
-  children_hash = {id: "#{child.id}", name: "#{child.name}"}
-  @category_children_array << children_hash
-end
+    # 選択されている子カテゴリーのレコードを取得
+    @selected_child_category = @selected_grandchild_category.parent
+     # 子カテゴリー選択肢用の配列作成
+    @category_children_array = [{id: "---", name: "---"}]
+    Category.find("#{@selected_child_category.id}").siblings.each do |child|
+      children_hash = {id: "#{child.id}", name: "#{child.name}"}
+      @category_children_array << children_hash
+    end
 
-# 選択されている親カテゴリーのレコードを取得
-@selected_parent_category = @selected_child_category.parent
-# 親カテゴリー選択肢用の配列作成
-@category_parents_array = [{id: "---", name: "---"}]
-Category.find("#{@selected_parent_category.id}").siblings.each do |parent|
-parent_hash = {id: "#{parent.id}", name: "#{parent.name}"}
-@category_parents_array << parent_hash
-end
+    # 選択されている親カテゴリーのレコードを取得
+      @selected_parent_category = @selected_child_category.parent
+    # 親カテゴリー選択肢用の配列作成
+    @category_parents_array = [{id: "---", name: "---"}]
+      Category.find("#{@selected_parent_category.id}").siblings.each do |parent|
+      parent_hash = {id: "#{parent.id}", name: "#{parent.name}"}
+    @category_parents_array << parent_hash
+    end
 
 
 # 親カテゴリーが選択された後に動くアクション
@@ -69,9 +71,6 @@ def get_category_grandchildren
   #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
   @category_grandchildren = Category.find("#{params[:child_id]}").children
 end
-
-
-
 
 
 end
