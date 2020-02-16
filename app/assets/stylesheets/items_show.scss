@@ -23,19 +23,24 @@
           width: 560px;
           margin: 0 auto;
           &__main_sold {
-            height: 430px;
-            width: 430px;
+            height: 400px;
+            width: 560px;
             margin: 0 auto;
             background-color: #3CCACE;
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
+            opacity: 0.8;
             &__text {
               font-size: 75px;
               color: white;
             }
           }
-          &__main_image {           
+          &__main_image {    
+            opacity: 0.3;
+            position: absolute;
+            z-index: -1;       
             .img {
             height: 400px;
             width: 560px;

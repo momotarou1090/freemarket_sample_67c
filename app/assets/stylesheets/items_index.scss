@@ -266,13 +266,18 @@
 }
 
 //apple googleロゴ
-  .banner-apple{
-    margin-top: 15px;
-    
+.banner-apple{
+  margin-top: 15px;
+  img:hover{
+  opacity: 0.6;
   }
-  .banner-google{
-    margin-left: 25px;
+}
+.banner-google{
+  margin-left: 25px;
+  img:hover{
+  opacity: 0.6;
   }
+}
 
 
 //投稿ボタン
