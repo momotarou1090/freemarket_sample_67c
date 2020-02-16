@@ -4,8 +4,9 @@ class PurchaseController < ApplicationController
 
   def index
     card = Card.where(user_id: current_user.id).first
-
     @item = Item.find(params[:item_id])
+    @image_first = @item.images[0]
+    @image_others = @item.images[1..3]
     @address = Address.find_by(user_id: current_user)
     #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
     if card.blank?
