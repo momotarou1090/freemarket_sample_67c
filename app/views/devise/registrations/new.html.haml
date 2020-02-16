@@ -49,16 +49,14 @@
             %span.necessary 必須
             %br/
             .field__birth
-              -# = f.text_field :birth_year, autofocus: true, maxlength: "4", class: "year form-birth"
-              -# = f.select :birth_year, [["", 0], ["1月", 1],["2月", 2],["3月", 3],["4月",4],["5月",5],["６月",6],["7月",7],["8月",8],["9月",9],["10月",10],["11月",11],["12月",12]],class: "year form-birth"
-              = f.collection_select :birth_year, BirthYear.all, :id, :name
+              = f.text_field :birth_year, autofocus: true, maxlength: "4", class: "year form-birth"
+              -# = f.collection_select :birth_year, BirthYear.all, :id, :name
               %span.birthday 年
-
-              = f.select :birth_year, [["", 0], ["1", 1],["2", 2],["3", 3],["4",4],["5",5],["６",6],["7",7],["8",8],["9",9],["10",10],["11",11],["12",12]],class: "year form-birth"
-              -# = f.text_field :birth_month, autofocus: true, maxlength: "2", class: "month form-birth"
+              = f.text_field :birth_month, autofocus: true, maxlength: "2", class: "month form-birth"
+              -# = f.select :birth_year, [["", 0], ["1", 1],["2", 2],["3", 3],["4",4],["5",5],["６",6],["7",7],["8",8],["9",9],["10",10],["11",11],["12",12]],class: "year form-birth"
               %span.birthday 月
-              = f.select :birth_year, [["", 0], ["1月", 1],["2月", 2],["3月", 3],["4月",4],["5月",5],["６月",6],["7月",7],["8月",8],["9月",9],["10月",10],["11月",11],["12月",12]],class: "year form-birth"
-              -# = f.text_field :birth_date, autofocus: true, maxlength: "2", class: "date form-birth"
+              = f.text_field :birth_date, autofocus: true, maxlength: "2", class: "date form-birth"
+              -#  = f.select :birth_year, [["", 0], ["1月", 1],["2月", 2],["3月", 3],["4月",4],["5月",5],["６月",6],["7月",7],["8月",8],["9月",9],["10月",10],["11月",11],["12月",12]],class: "year form-birth"
               %span.birthday 日
           .actions
             = f.submit "次へ進む", class: "next"
