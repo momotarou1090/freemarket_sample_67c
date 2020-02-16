@@ -30,7 +30,6 @@
             = f.label :都道府県
             %span.necessary 必須
             %br/
-            -# = f.text_field :prefecture, class: "form"
             = f.collection_select :prefecture, Region.all, :name, :name,class: "form"
           .field
             = f.label :市区町村
