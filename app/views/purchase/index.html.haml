@@ -7,11 +7,10 @@
           %hr
         .item-review
           .item-review__main-image
-            = image_tag @item.images[0].image.url
+            = image_tag @image_first.image.url
           .item-review__other-image
-            = image_tag @item.images[1].image.url
-            = image_tag @item.images[2].image.url
-            = image_tag @item.images[3].image.url
+            -@image_others.each do |i|
+              =image_tag i.image.url
         .item-title
           = @item.name
         .payment-amount
