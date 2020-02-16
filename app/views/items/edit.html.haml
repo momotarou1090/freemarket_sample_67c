@@ -1,3 +1,4 @@
+
 .main
   .show_main
     .content
@@ -34,16 +35,24 @@
             .split
               %span 商品の詳細
               .item_detail_right
-                .column_title
-                  .column_title__wrapper
-                    %h1 カテゴリ
-                    %p 必須
-                = f.select :category_id, [["--", 0], ["レディース", 1],["メンズ", 2],["ベビー・キッズ", 3],["インテリア・住まい・小物",4],["本・音楽・ゲーム",5],["おもちゃ・ホビー・グッズ",6],["コスメ・香水・美容",7],["家電・スマホ・カメラ", 8],["スポーツ・レジャー",9],["ハンドメイド", 10],["チケット", 11],["自動車・オートバイ", 12],["その他",13]], class: "items_form-c"
+                .listing-form-box
+                  .listing-product-detail__category
+                    = f.label 'カテゴリー', class: 'listing-default__label'
+                    %span.listing-default--require 必須
+                    .listing-select-wrapper
+                      .listing-select-wrapper__box
+                        = f.select :categories, options_for_select(@category_parents_array.map{|c|[c[:name],c[:name],{'data-category'=>c[:id]}]},@selected_parent_category.name), {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                    .listing-select-wrapper__added#children_wrapper
+                      .listing-select-wrapper__box
+                        = f.select :categories, options_for_select(@category_children_array.map{|c|[c[:name],c[:id],{'data-category'=>c[:id]}]},@selected_child_category.id), {}, {class: 'listing-select-wrapper__box--select', id: 'child_category'}
+                    .listing-select-wrapper__added#grandchildren_wrapper
+                      .listing-select-wrapper__box
+                        = f.select :categories, options_for_select(@category_grandchildren_array.map{|c|[c[:name],c[:id],{'data-category'=>c[:id]}]},@selected_grandchild_category.id), {}, {class: 'listing-select-wrapper__box--select', id:  'grandchild_category'}
                 .column_title
                   .column_title__wrapper
                     %h1 商品の状態
                     %p 必須
-                  = f.select :condition, [["--", 0], ["新品、未使用", 1],["未使用に近い", 2],["目立った傷や汚れなし", 3],["やや傷や汚れあり",4],["傷や汚れあり",5],["全体的に状態が悪い",6]], class: "items_form-c"
+                  = f.collection_select :condition_id, Condition.all, :id, :name
 
             %hr
 
@@ -54,7 +63,7 @@
                   .column_title__wrapper
                     %h1 配送料の負担
                     %p 必須
-                = f.select :postage, [["--", 0 ], ["送料込み（出品者負担）", 1],["着払い（購入者負担）", 2]], class: "items_form-c"
+                = f.collection_select :postage_id, Postage.all, :id, :name
                 .column_title
                   .column_title__wrapper
                     %h1 発送元の地域
@@ -64,7 +73,7 @@
                   .column_title__wrapper
                     %h1 発送までの日数
                     %p 必須
-                = f.select :shipping_date, [["--", 0],["1~2日で発送", 0],["2~3日で発送", 1],["4~7日で発送", 2]], class: "items_form-c"
+                = f.collection_select :shipping_date_id, ShippingDate.all, :id, :name
             %hr
 
             .split
