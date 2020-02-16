@@ -37,10 +37,17 @@
               color: white;
             }
           }
-          &__main_image {    
+          &__main_image-b{    
             opacity: 0.3;
             position: absolute;
-            z-index: -1;       
+            .img {
+            height: 400px;
+            width: 560px;
+            object-fit: cover;
+            }
+          }
+          
+          &__main_image{      
             .img {
             height: 400px;
             width: 560px;
