@@ -20,19 +20,20 @@
     .user-items_title
       この出品者の商品
       .user-items-wrapper
-        - @items.each do |sellor_items|
-          .user-item__box
-            .user-item__box__image
-              - img = sellor_items.images[0]
-              = image_tag img.image.url, class: "user-item__box__image__content"
-              .user-item__box__body
-                .user-item__box__body__name
-                  商品名
-                  = sellor_items.name.truncate(12)
-                  .user-item__box__body__price-box
-                    .user-item__box__body__price-box__price
-                    = "#{sellor_items.price}円"
-                    .user-item__box__body__price-box__tax
-                    (税込)
+        - @items.each do |item|
+          = link_to item_path(item.id) do
+            .user-item__box
+              .user-item__box__image
+                - img = item.images[0]
+                = image_tag img.image.url, class: "user-item__box__image__content"
+                .user-item__box__body
+                  .user-item__box__body__name
+                    商品名
+                    = item.name
+                    .user-item__box__body__price-box
+                      .user-item__box__body__price-box__price
+                      = "#{item.price}円"
+                      .user-item__box__body__price-box__tax
+                      (税込)
 
   = render 'shared/footer'
