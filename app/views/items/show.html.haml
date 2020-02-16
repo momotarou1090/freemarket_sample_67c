@@ -8,6 +8,8 @@
           -if @item.buyer_id.present?
             .item_box__body__main_sold 
               .item_box__body__main_sold__text SOLD
+              .item_box__body__main_image
+                = image_tag @image_first.image.url, class:"img"
           - else
             .item_box__body__images
               .item_box__body__main_image
@@ -25,10 +27,13 @@
           %p 税込（送料込み）
         .item_detail
           .item_detail__item_name
-            = @item.name
           .item_table
             %table
               %tbody
+                %tr
+                  %th 商品名
+                  %td
+                    = @item.name
                 %tr
                   %th 出品者
                   %td
@@ -68,7 +73,7 @@
                 前の商品
             .links_right
               = link_to "#", class: 'links_angle' do
-                後ろの商品
+                次の商品
                 = icon('fa', 'angle-right')
           = link_to "#{@item.category.name}をもっとみる", "#", class: "category_link"
 

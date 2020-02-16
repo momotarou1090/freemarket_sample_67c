@@ -49,24 +49,29 @@
               margin-right: 8px;
             }
           }
+
           &__birth {
             padding-top: 10px;
             margin: 8px 0 0;
             display: flex;
             max-width: 334px;
-            .birthday {
-              line-height: 40px;
-              font-size: 20px;
+            height: 50px;
+            #user_birth_year{
+              background-color: white;
+              border-color: rgb(209, 209, 209);
+              color: rgb(158, 157, 157);
             }
-            .form-birth {
-              border-radius: 4px;
-              border: 1px solid #ccc;
-              background: #fff;
-              line-height: 1.5;
-              font-size: 20px;
-              width: 50%;
-              height: 50px;
-              padding-left: 20px;
+            #user_birth_month{
+              background-color: white;
+              border-color: rgb(209, 209, 209);
+              margin-left: 10px;
+              color: rgb(158, 157, 157);
+            }
+            #user_birth_date{
+              background-color: white;
+              border-color: rgb(209, 209, 209);
+              margin-left: 10px;
+              color: rgb(158, 157, 157);
             }
           }
           .necessary {
@@ -75,6 +80,12 @@
             border-radius: 2px;
             font-size: 12px;
             padding: 3px;
+          }
+          #address_prefecture{
+            background-color: white;
+            border-color: rgb(209, 209, 209);
+            height: 50px;
+            color: rgb(158, 157, 157);
           }
         }
       }
@@ -156,6 +167,7 @@
             background: #0099e8;
             color: #fff;
             line-height: 40px;
+            border-radius: 4px;
           }
         }
         &__login-form-inner {
@@ -180,8 +192,6 @@
     }
   }
 }
-
-
 
 a {
   text-decoration: none;
