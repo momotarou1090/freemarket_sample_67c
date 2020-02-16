@@ -7,8 +7,9 @@
         .item_box__body
           -if @item.buyer_id.present?
             .item_box__body__main_sold 
-              .item_box__body__main_sold__text SOLD
-              .item_box__body__main_image
+              .item_box__body__main_sold__text
+                SOLD
+              .item_box__body__main_image-b
                 = image_tag @image_first.image.url, class:"img"
           - else
             .item_box__body__images
