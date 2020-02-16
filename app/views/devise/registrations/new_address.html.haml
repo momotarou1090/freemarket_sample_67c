@@ -12,43 +12,43 @@
             %span.necessary 必須
             %br/
             .field__name
-              = f.text_field :last_name, class: "form-name name-left"
-              = f.text_field :first_name, class: "form-name name-right"
+              = f.text_field :last_name, class: "form-name name-left",placeholder: "例）山田"
+              = f.text_field :first_name, class: "form-name name-right",placeholder: "例）太郎"
           .field
             = f.label :送付先氏名カナ
             %span.necessary 必須
             %br/
             .field__name
-              = f.text_field :last_name_kana, class: "form-name name-left"
-              = f.text_field :first_name_kana, class: "form-name name-right"
+              = f.text_field :last_name_kana, class: "form-name name-left",placeholder: "例）ヤマダ"
+              = f.text_field :first_name_kana, class: "form-name name-right",placeholder: "例）タロウ"
           .field
             = f.label :郵便番号
             %span.necessary 必須
             %br/
-            = f.text_field :post_code, class: "form"
+            = f.text_field :post_code, class: "form",placeholder: "郵便番号を入力"
           .field
             = f.label :都道府県
             %span.necessary 必須
             %br/
-            = f.text_field :prefecture, class: "form"
+            = f.collection_select :prefecture, Region.all, :name, :name,class: "form"
           .field
             = f.label :市区町村
             %span.necessary 必須
             %br/
-            = f.text_field :city, class: "form"
+            = f.text_field :city, class: "form",placeholder: "市区町村を入力"
           .field
             = f.label :番地
             %span.necessary 必須
             %br/
-            = f.text_field :block, class: "form"
+            = f.text_field :block, class: "form",placeholder: "番地を入力"
           .field
             = f.label :マンション名、ビル名、部屋番号など
             %br/
-            = f.text_field :building, class: "form"
+            = f.text_field :building, class: "form",placeholder: "任意"
           .field
             = f.label :お届け先電話番号
             %br/
-            = f.text_field :phone_number, class: "form"
+            = f.text_field :phone_number, class: "form",placeholder: "任意"
           .actions
             = f.submit "登録する", class: "next"
           .space

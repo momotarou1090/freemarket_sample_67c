@@ -11,49 +11,54 @@
             = f.label :ニックネーム
             %span.necessary 必須
             %br/
-            = f.text_field :nickname, autofocus: true, maxlength: "10", class: "form"
+            = f.text_field :nickname, autofocus: true, maxlength: "10", class: "form",placeholder: "例)タロウ"
           .field
             = f.label :Eメール
             %span.necessary 必須
             %br/
-            = f.email_field :email, autofocus: true, autocomplete: "email", class: "form"
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: "form",placeholder: "PC/携帯どちらでも可能"
           .field
             = f.label :電話番号
             %br/
-            = f.text_field :phone_number, autofocus: true, maxlength: "12", class: "form"
+            = f.text_field :phone_number, autofocus: true, maxlength: "12", class: "form",placeholder: "携帯番号を入力"
           .field
             = f.label :パスワード
             %span.necessary 必須
             %br/
-            = f.password_field :password, autocomplete: "new-password", class: "form"
+            = f.password_field :password, autocomplete: "new-password", class: "form",placeholder: "パスワードを入力"
           .field
             = f.label :パスワード再入力
             %br/
-            = f.password_field :password_confirmation, autocomplete: "new-password", class: "form"
+            = f.password_field :password_confirmation, autocomplete: "new-password", class: "form",placeholder: "パスワードを再入力"
           .field
             = f.label :お名前
             %span.necessary 必須
             %br/
             .field__name
-              = f.text_field :last_name, autofocus: true, maxlength: "5", class: "form-name name-left"
-              = f.text_field :first_name, autofocus: true, maxlength: "5", class: "form-name name-right"
+              = f.text_field :last_name, autofocus: true, maxlength: "5", class: "form-name name-left",placeholder: "例）山田"
+              = f.text_field :first_name, autofocus: true, maxlength: "5", class: "form-name name-right",placeholder: "例）太郎"
           .field
             = f.label :お名前カナ
             %span.necessary 必須
             %br/
             .field__name
-              = f.text_field :last_name_kana, autofocus: true, maxlength: "20", class: "form-name name-left"
-              = f.text_field :first_name_kana, autofocus: true, maxlength: "20", class: "form-name name-right"
+              = f.text_field :last_name_kana, autofocus: true, maxlength: "20", class: "form-name name-left",placeholder: "例）ヤマダ"
+              = f.text_field :first_name_kana, autofocus: true, maxlength: "20", class: "form-name name-right",placeholder: "例）タロウ"
           .field
             = f.label :生年月日
             %span.necessary 必須
             %br/
             .field__birth
-              = f.text_field :birth_year, autofocus: true, maxlength: "4", class: "year form-birth"
+              -# = f.text_field :birth_year, autofocus: true, maxlength: "4", class: "year form-birth"
+              -# = f.select :birth_year, [["", 0], ["1月", 1],["2月", 2],["3月", 3],["4月",4],["5月",5],["６月",6],["7月",7],["8月",8],["9月",9],["10月",10],["11月",11],["12月",12]],class: "year form-birth"
+              = f.collection_select :birth_year, BirthYear.all, :id, :name
               %span.birthday 年
-              = f.text_field :birth_month, autofocus: true, maxlength: "2", class: "month form-birth"
+
+              = f.select :birth_year, [["", 0], ["1", 1],["2", 2],["3", 3],["4",4],["5",5],["６",6],["7",7],["8",8],["9",9],["10",10],["11",11],["12",12]],class: "year form-birth"
+              -# = f.text_field :birth_month, autofocus: true, maxlength: "2", class: "month form-birth"
               %span.birthday 月
-              = f.text_field :birth_date, autofocus: true, maxlength: "2", class: "date form-birth"
+              = f.select :birth_year, [["", 0], ["1月", 1],["2月", 2],["3月", 3],["4月",4],["5月",5],["６月",6],["7月",7],["8月",8],["9月",9],["10月",10],["11月",11],["12月",12]],class: "year form-birth"
+              -# = f.text_field :birth_date, autofocus: true, maxlength: "2", class: "date form-birth"
               %span.birthday 日
           .actions
             = f.submit "次へ進む", class: "next"
