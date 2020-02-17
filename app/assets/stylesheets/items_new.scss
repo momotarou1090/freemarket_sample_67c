@@ -3,14 +3,19 @@
     .content{
       .item_box{
         height: 100%;
-        .item_box__item_title{
+          .image_form__block__form {
+            background-color: #EEEEEE;
+            height: 200px;
+            width: 100%;
+            border: 1px dashed gray;
+          }
+          .item-image {
+            float: left;
+            background-color: white;
+            margin-right: 4px;
+          }
 
-        }
-        .image_form {
-          margin-top: 20px;
-          align-items: center;
-        }
-      
+        
       }
     }
   }
