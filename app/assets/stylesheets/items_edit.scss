@@ -33,5 +33,13 @@
     }
   }
 }
+.listing-select-wrapper__added{
+  .listing-select-wrapper__box{
+    &--select{
+      width: 100%;
+      height: 40px;
 
+    }
+  }
+}
 
