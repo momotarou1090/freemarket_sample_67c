@@ -3,7 +3,8 @@ class Item < ApplicationRecord
   has_many :images, dependent: :destroy
   belongs_to :user,foreign_key: 'seller_id'
 
-  accepts_nested_attributes_for :images # item保存時に、imageテーブルにレコードを保存するため
+  # item保存時に、imageテーブルにレコードを保存するため
+  accepts_nested_attributes_for :images, allow_destroy: true # itemが削除された時に紐づくimageも消すため 
   extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to_active_hash :region
     belongs_to_active_hash :condition
