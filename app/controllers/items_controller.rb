@@ -88,8 +88,6 @@ class ItemsController < ApplicationController
     end
   end
 
-
-
   def show
     @user = User.where(id: @item.seller_id)
     @image_first = @item.images[0]
@@ -100,16 +98,14 @@ class ItemsController < ApplicationController
     @items = Item.search(params[:keyword])
     
   end
-
           
 private
   def item_params
     params.require(:item).permit(
-      :seller_id, :category_id, :name, :description, :postage_id, :region_id, :shipping_date_id, :price, :condition_id, :status, images_attributes: [:image]
+      :seller_id, :category_id, :name, :description, :postage_id, :region_id, :shipping_date_id, :price, :condition_id, :status, [images_attributes: [:image, :_destroy, :id]]
     )
   end
       
-
   def set_item
     @item = Item.find(params[:id])
   end

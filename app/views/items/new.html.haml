@@ -10,85 +10,88 @@
             %h1 出品画像
             %p 必須
           %span 最大4枚まで登録できます
-        .image_form
-          %section.image_form__block
-          = form_with model: @item, local:true do |f|
-            .image_form__block__form
-              #image-box-1
-                .item-num-0#image-box__container
-                  = f.fields_for :images do |i|
-                    .input-area
-                      = i.file_field :image, type: 'file', name: "item[images_attributes][][image]", value:"", style: "display:none", id:"img-file"
-                      %label{for: "img-file"}
-                        %i.fas.fa-camera
-              
-            %hr
-            .column_title
-              .column_title__wrapper
-                %h1 商品名
-                %p 必須
-              = f.text_field :name,placeholder: "商品名（必須40文字まで)" , class: "items_form-a"
-            .column_title
-              .column_title__wrapper
-                %h1 商品の説明
-                %p 必須
-              = f.text_area :description,placeholder: "商品の説明（必須1000文字以内）" , class: "items_form-b"
-            %hr
+        .input_form
+          %section.input_form__block
+            = form_with model:@item, local:true do |f|
+              .post__drop__box__container
+                .prev-content
+                .label-content
+                %label{for: "item_images_attributes_0_image", class: "abel-box", id: "label-box--0"}
+                  %pre.label-box__text-visible クリックしてファイルをアップロード
+              .hidden-content
+                = f.fields_for :images do |i|
+                  = i.file_field :image, class: "hidden-field"
+                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][image]", id: "item_images_attributes_1_image" }
+                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][image]", id: "item_images_attributes_2_image" }
+                  %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][image]", id: "item_images_attributes_3_image" }
+          
+              %hr
+              .column_title
+                .column_title__wrapper
+                  %h1 商品名
+                  %p 必須
+                = f.text_field :name,placeholder: "商品名（必須40文字まで)" , class: "items_form-a"
+              .column_title
+                .column_title__wrapper
+                  %h1 商品の説明
+                  %p 必須
+                = f.text_area :description,placeholder: "商品の説明（必須1000文字以内）" , class: "items_form-b"
+              %hr
 
-            .split
-              %span 商品の詳細
-              .item_detail_right
-                .listing-form-box
-                  .listing-product-detail__category
-                    = f.label 'カテゴリー', class: 'listing-default__label'
-                    %span.listing-default--require 必須
-                    .listing-select-wrapper
-                      .listing-select-wrapper__box
-                        = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
-
-                .column_title
-                  .column_title__wrapper
-                    %h1 商品の状態
-                    %p 必須
-                  = f.select :condition_id, [["--", 0], ["新品、未使用", 1],["未使用に近い", 2],["目立った傷や汚れなし", 3],["やや傷や汚れあり",4],["傷や汚れあり",5],["全体的に状態が悪い",6]]
-
-            %hr
-
-            .split
-              %span 配送について
-              .item_detail_right
-                .column_title
-                  .column_title__wrapper
-                    %h1 配送料の負担
-                    %p 必須
-                = f.select :postage_id, [["--", 0 ], ["送料込み（出品者負担）", 1],["着払い（購入者負担）", 2]]
-                .column_title
-                  .column_title__wrapper
-                    %h1 発送元の地域
-                    %p 必須
-                = f.collection_select :region_id, Region.all, :id, :name
-                .column_title
-                  .column_title__wrapper
-                    %h1 発送までの日数
-                    %p 必須
-                = f.select :shipping_date_id, [["--", 0],["1~2日で発送",1],["2~3日で発送", 2],["4~7日で発送", 3]]
-            %hr
-
-            .split
-              %span 販売価格（300~9,999,999）
               .split
-                .column_title
-                  .column_title__wrapper
-                    %h1 価格
-                    %p 必須
-                = f.text_field :price,placeholder: "例) 300"
-            %hr
-            - if user_signed_in?
-              = f.hidden_field :seller_id, value: current_user.id # ユーザーに入力させることなくseller_idをテーブルに保存させるため
-            = f.hidden_field :status, value: "exibiting" # ユーザーに入力させることなくstatusを出品中にするため
-            
-            
-            = f.submit "出品する" ,class: "send_btn"
-            = link_to "もどる", "#", class: "back_btn"
+                %span 商品の詳細
+                .item_detail_right
+                  .listing-form-box
+                    .listing-product-detail__category
+                      = f.label 'カテゴリー', class: 'listing-default__label'
+                      %span.listing-default--require 必須
+                      .listing-select-wrapper
+                        .listing-select-wrapper__box
+                          = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+
+                  .column_title
+                    .column_title__wrapper
+                      %h1 商品の状態
+                      %p 必須
+                    = f.select :condition_id, [["--", 0], ["新品、未使用", 1],["未使用に近い", 2],["目立った傷や汚れなし", 3],["やや傷や汚れあり",4],["傷や汚れあり",5],["全体的に状態が悪い",6]]
+
+              %hr
+
+              .split
+                %span 配送について
+                .item_detail_right
+                  .column_title
+                    .column_title__wrapper
+                      %h1 配送料の負担
+                      %p 必須
+                  = f.select :postage_id, [["--", 0 ], ["送料込み（出品者負担）", 1],["着払い（購入者負担）", 2]]
+                  .column_title
+                    .column_title__wrapper
+                      %h1 発送元の地域
+                      %p 必須
+                  = f.collection_select :region_id, Region.all, :id, :name
+                  .column_title
+                    .column_title__wrapper
+                      %h1 発送までの日数
+                      %p 必須
+                  = f.select :shipping_date_id, [["--", 0],["1~2日で発送",1],["2~3日で発送", 2],["4~7日で発送", 3]]
+              %hr
+
+              .split
+                %span 販売価格（300~9,999,999）
+                .split
+                  .column_title
+                    .column_title__wrapper
+                      %h1 価格
+                      %p 必須
+                  = f.text_field :price,placeholder: "例) 300"
+              %hr
+              - if user_signed_in?
+                = f.hidden_field :seller_id, value: current_user.id # ユーザーに入力させることなくseller_idをテーブルに保存させるため
+              = f.hidden_field :status, value: "exibiting" # ユーザーに入力させることなくstatusを出品中にするため
+              
+              
+              = f.submit "出品する" ,class: "send_btn"
+              = link_to "もどる", "#", class: "back_btn"
 
 

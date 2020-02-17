@@ -11,86 +11,115 @@
             .column_title___edit__wrapper__text
               %h1 出品画像
               %p 必須
-              %span 最大4枚まで登録できます
-            - @images.each do |i|
-              = image_tag i.image.url, class:"item_image"
+            %span 最大4枚まで登録できます
+            -# - @images.each do |i|
+            -#   = image_tag i.image.url, class:"item_image"
 
-   
-        = form_with model: @item do |f|
-          = f.fields_for :images do |img|
-            = img.file_field :image, class: "items_form"
-       
-              
-          %hr
-          .column_title
-            .column_title__wrapper
-              %h1 商品名
-              %p 必須
-          = f.text_field :name,placeholder: "商品名（必須40文字まで)" , class: "items_form-a"
-          .column_title
-            .column_title__wrapper
-              %h1 商品の説明
-              %p 必須
-          = f.text_area :description,placeholder: "商品の説明（必須1000文字以内）" , class: "items_form-b"
-          %hr
+        .main
+        %section.main__block
+          = form_with model:@item, local:true do |f|
+            .sell__block__form
+              .sell__block__form__upload
+                .post__drop__box__container
+                  .prev-content
 
-          .split
-            %span 商品の詳細
-            .item_detail_right
-              .listing-form-box
-                .listing-product-detail__category
-                  = f.label 'カテゴリー', class: 'listing-default__label'
-                  %span.listing-default--require 必須
-                  .listing-select-wrapper
-                    .listing-select-wrapper__box
-                      = f.select :category_id, options_for_select(@category_parents_array.map{|c|[c[:name],c[:name],{'data-category'=>c[:id]}]},@selected_parent_category.name), {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
-                  .listing-select-wrapper__added#children_wrapper
-                    .listing-select-wrapper__box
-                      = f.select :category_id, options_for_select(@category_children_array.map{|c|[c[:name],c[:id],{'data-category'=>c[:id]}]},@selected_child_category.id), {}, {class: 'listing-select-wrapper__box--select', id: 'child_category'}
-                  .listing-select-wrapper__added#grandchildren_wrapper
-                    .listing-select-wrapper__box
-                      = f.select :category_id, options_for_select(@category_grandchildren_array.map{|c|[c[:name],c[:id],{'data-category'=>c[:id]}]},@selected_grandchild_category.id), {}, {class: 'listing-select-wrapper__box--select', id:  'grandchild_category'}
+                    //JSで挿入したhtmlと同じ形 each文でのプレビュー表示
+                    - @item.images.each do |image|
+                      .preview-box
+                        .upper-box
+                          = image_tag image.image.url, width: "112", height: "112", alt: "preview"
+                        .lower-box
+                          .update-box
+                            %label.edit-btn 編集
+                          .delete-box
+                            .delete-btn
+                              %span 削除
+                  .label-content
+
+                    //プレビューの数に合わせてforオプションを指定
+                    = f.label :"images_attributes_#{@item.images.length}_image", class: "label-box", id: "label-box--#{@item.images.length}" do
+                      %pre.label-box__text-visible クリックしてファイルをアップロード
+                  .hidden-content
+                    = f.fields_for :images do |i|
+
+                      //プレビューが出ている分のfile_fieldとdelete用のチェックボックスを設置
+                      = i.file_field :image, class: "hidden-field"
+                      = i.check_box:_destroy, class: "hidden-checkbox"
+
+                      //5つのfile_fieldを準備するに当たって、足りない分を表示
+                    - @item.images.length.upto(3) do |i|
+                      %input{name: "item[images_attributes][#{i}][image]", id: "item_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
+                  
+              %hr
               .column_title
                 .column_title__wrapper
-                  %h1 商品の状態
+                  %h1 商品名
                   %p 必須
-                = f.collection_select :condition_id, Condition.all, :id, :name
-
-          %hr
-
-          .split
-            %span 配送について
-            .item_detail_right
+              = f.text_field :name,placeholder: "商品名（必須40文字まで)" , class: "items_form-a"
               .column_title
                 .column_title__wrapper
-                  %h1 配送料の負担
+                  %h1 商品の説明
                   %p 必須
-              = f.collection_select :postage_id, Postage.all, :id, :name
-              .column_title
-                .column_title__wrapper
-                  %h1 発送元の地域
-                  %p 必須
-              = f.collection_select :region_id, Region.all, :id, :name
-              .column_title
-                .column_title__wrapper
-                  %h1 発送までの日数
-                  %p 必須
-              = f.collection_select :shipping_date_id, ShippingDate.all, :id, :name
-          %hr
+              = f.text_area :description,placeholder: "商品の説明（必須1000文字以内）" , class: "items_form-b"
+            %hr
 
-          .split
-            %span 販売価格（300~9,999,999）
             .split
-              .column_title
-                .column_title__wrapper
-                  %h1 価格
-                  %p 必須
-              = f.text_field :price,placeholder: "例) 300", class: "items_form-d"
-          %hr
-          - if user_signed_in?
-            = f.hidden_field :seller_id, value: current_user.id # ユーザーに入力させることなくseller_idをテーブルに保存させるため
-          = f.hidden_field :status, value: "exibiting" # ユーザーに入力させることなくstatusを出品中にするため
-          
-          
-          = f.submit "編集する" ,class: "send_btn"
-          = link_to "もどる", "#", class: "back_btn"
+              %span 商品の詳細
+              .item_detail_right
+                .listing-form-box
+                  .listing-product-detail__category
+                    = f.label 'カテゴリー', class: 'listing-default__label'
+                    %span.listing-default--require 必須
+                    .listing-select-wrapper
+                      .listing-select-wrapper__box
+                        = f.select :category_id, options_for_select(@category_parents_array.map{|c|[c[:name],c[:name],{'data-category'=>c[:id]}]},@selected_parent_category.name), {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                    .listing-select-wrapper__added#children_wrapper
+                      .listing-select-wrapper__box
+                        = f.select :category_id, options_for_select(@category_children_array.map{|c|[c[:name],c[:id],{'data-category'=>c[:id]}]},@selected_child_category.id), {}, {class: 'listing-select-wrapper__box--select', id: 'child_category'}
+                    .listing-select-wrapper__added#grandchildren_wrapper
+                      .listing-select-wrapper__box
+                        = f.select :category_id, options_for_select(@category_grandchildren_array.map{|c|[c[:name],c[:id],{'data-category'=>c[:id]}]},@selected_grandchild_category.id), {}, {class: 'listing-select-wrapper__box--select', id:  'grandchild_category'}
+                .column_title
+                  .column_title__wrapper
+                    %h1 商品の状態
+                    %p 必須
+                  = f.collection_select :condition_id, Condition.all, :id, :name
+
+            %hr
+
+            .split
+              %span 配送について
+              .item_detail_right
+                .column_title
+                  .column_title__wrapper
+                    %h1 配送料の負担
+                    %p 必須
+                = f.collection_select :postage_id, Postage.all, :id, :name
+                .column_title
+                  .column_title__wrapper
+                    %h1 発送元の地域
+                    %p 必須
+                = f.collection_select :region_id, Region.all, :id, :name
+                .column_title
+                  .column_title__wrapper
+                    %h1 発送までの日数
+                    %p 必須
+                = f.collection_select :shipping_date_id, ShippingDate.all, :id, :name
+            %hr
+
+            .split
+              %span 販売価格（300~9,999,999）
+              .split
+                .column_title
+                  .column_title__wrapper
+                    %h1 価格
+                    %p 必須
+                = f.text_field :price,placeholder: "例) 300", class: "items_form-d"
+            %hr
+            - if user_signed_in?
+              = f.hidden_field :seller_id, value: current_user.id # ユーザーに入力させることなくseller_idをテーブルに保存させるため
+            = f.hidden_field :status, value: "exibiting" # ユーザーに入力させることなくstatusを出品中にするため
+            
+            
+            = f.submit "編集する" ,class: "send_btn"
+            = link_to "もどる", "#", class: "back_btn"
