@@ -9,7 +9,7 @@ class PurchaseController < ApplicationController
     @image_others = @item.images[1..3]
     @address = Address.find_by(user_id: current_user)
 
-    if @item.status = "closed"
+    if @item.status == "closed"
       redirect_to item_path(@item),alert:"購入済商品です"
     end
 
