@@ -10,7 +10,7 @@ class PurchaseController < ApplicationController
     @image_others = @item.images[1..3]
     @address = Address.find_by(user_id: current_user)
         
-    if current_user.id = @item.seller_id
+    if current_user.id == @item.seller_id
       redirect_to item_path(@item.id),alert: "これはあなたの出品した商品です"
     end
 
