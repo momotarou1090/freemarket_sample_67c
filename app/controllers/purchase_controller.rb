@@ -25,19 +25,30 @@ class PurchaseController < ApplicationController
     @item = Item.find(params[:item_id])
     card = Card.where(user_id: current_user.id).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-    Payjp::Charge.create(
-    :amount => @item.price, #支払金額を入力（itemテーブル等に紐づけても良い）
-    :customer => card.customer_id, #顧客ID
-    :currency => 'jpy', #日本円
-  )
-  redirect_to action: 'done' #完了画面に移動
+    if @item.status = "closed"
+      redirect_to item_path(@item)
+    elsif current_user.id == @item.seller_id
+      redirect_to item_path(@item)
+    else
+      Payjp::Charge.create(
+      :amount => @item.price, #支払金額を入力（itemテーブル等に紐づけても良い）
+      :customer => card.customer_id, #顧客ID
+      :currency => 'jpy', #日本円
+    )
+      redirect_to action: 'done' #完了画面に移動
+    end
   end
 
   def done
     @item = Item.find(params[:item_id])
-    @item_purchaser= Item.find(params[:item_id])
-    @item_purchaser.update( buyer_id: current_user.id)
-    @item.update( status: "closed")
+    if @item.status = "closed"
+      redirect_to item_path(@item)
+    elsif current_user.id == @item.seller_id
+      redirect_to item_path(@item)
+    else
+      @item_purchaser= Item.find(params[:item_id])
+      @item_purchaser.update( buyer_id: current_user.id)
+      @item.update( status: "closed")
+    end
   end
-
 end
