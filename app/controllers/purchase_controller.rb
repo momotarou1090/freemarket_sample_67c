@@ -3,11 +3,17 @@ class PurchaseController < ApplicationController
   require 'payjp'
 
   def index
+    
     card = Card.where(user_id: current_user.id).first
     @item = Item.find(params[:item_id])
     @image_first = @item.images[0]
     @image_others = @item.images[1..3]
     @address = Address.find_by(user_id: current_user)
+        
+    if current_user.id == @item.seller_id
+      redirect_to item_path(@item.id),alert: "これはあなたの出品した商品です"
+    end
+
     #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
     if card.blank?
       #登録された情報がない場合にカード登録画面に移動
