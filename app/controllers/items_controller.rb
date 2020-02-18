@@ -74,21 +74,25 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.images.present?
-      if @item.save!
-        redirect_to item_path(@item.id)
+      if @item.save
+        redirect_to root_path, notice: "商品を出品しました！"
       else
-        render :new
+        redirect_to new_item_path, alert: "未入力の項目があります！"
       end
+    else
+      redirect_to new_item_path, alert: "未入力の項目があります！"
     end
   end
-
+  
   def update
     if @item.images.present?
       if @item.update(item_params)
-        redirect_to item_path(@item.id)
+        redirect_to root_path, notice: "商品の編集が完了しました！"
       else
-        render :edit
+        redirect_to new_item_path, alert: "未入力の項目があります！"
       end
+    else
+      redirect_to new_item_path, alert: "未入力の項目があります！"
     end
   end
 
@@ -106,7 +110,8 @@ class ItemsController < ApplicationController
 private
   def item_params
     params.require(:item).permit(
-      :seller_id, :category_id, :name, :description, :postage_id, :region_id, :shipping_date_id, :price, :condition_id, :status, [images_attributes: [:image, :_destroy, :id]]
+      :seller_id, :category_id, :name, :description, :postage_id, :region_id, :shipping_date_id, 
+      :price, :condition_id, :status, [images_attributes: [:image, :_destroy, :id]]
     )
   end
       
