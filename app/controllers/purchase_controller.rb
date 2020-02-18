@@ -9,9 +9,10 @@ class PurchaseController < ApplicationController
     @image_first = @item.images[0]
     @image_others = @item.images[1..3]
     @address = Address.find_by(user_id: current_user)
-        
-    if current_user.id == @item.seller_id
-      redirect_to item_path(@item.id),alert: "これはあなたの出品した商品です"
+
+
+    if @item.status == "closed"
+      redirect_to item_path(@item),alert:"購入済商品です"
     end
 
     #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
@@ -29,6 +30,7 @@ class PurchaseController < ApplicationController
 
   def pay
     @item = Item.find(params[:item_id])
+      
     card = Card.where(user_id: current_user.id).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
