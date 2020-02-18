@@ -11,7 +11,7 @@ class PurchaseController < ApplicationController
     @address = Address.find_by(user_id: current_user)
         
     if current_user.id = @item.seller_id
-      redirect_to root_path
+      redirect_to item_path(@item.id),alert: "これはあなたの出品した商品です"
     end
 
     #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
