@@ -27,6 +27,10 @@ class ItemsController < ApplicationController
   end
   
   def edit
+    if current_user != @item.seller_id
+      redirect_to root_path
+    end
+
     @images = @item.images
     # 4.times{ @item.images.build }
     @parents = Category.where(ancestry:nil)
