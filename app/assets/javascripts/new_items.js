@@ -111,7 +111,7 @@ $(document).on('turbolinks:load', function(){
         //フォームの中身を削除 
         $(`#item_images_attributes_${id}_image`).val("");
         var count = $('.preview-box').length;
-        //5個めが消されたらラベルを表示
+        //4個めが消されたらラベルを表示
         if (count == 4) {
           $('.label-content').show();
         }
@@ -124,7 +124,7 @@ $(document).on('turbolinks:load', function(){
 
         //投稿編集時
         $(`#item_images_attributes_${id}__destroy`).prop('checked',true);
-        //5個めが消されたらラベルを表示
+        //4個めが消されたらラベルを表示
         if (count == 4) {
           $('.label-content').show();
         }
