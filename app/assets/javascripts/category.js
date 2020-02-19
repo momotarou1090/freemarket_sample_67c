@@ -1,5 +1,4 @@
-
-$(document).on('turbolinks:load', function() { 
+document.addEventListener('DOMContentLoaded', function(){
   // カテゴリーセレクトボックスのオプションを作成
   function appendOption(category){
     var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
@@ -85,4 +84,4 @@ $(document).on('turbolinks:load', function() {
       $('#grandchildren_wrapper').remove(); //子カテゴリーが初期値になった時、孫以下を削除する
     }
   });
-});
+})
