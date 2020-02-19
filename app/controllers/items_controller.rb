@@ -89,11 +89,11 @@ class ItemsController < ApplicationController
   end
   
   def update
-    if @item.images.present?
-      if @item.update(item_params)
+    if @item.update(item_params)
+      if @item.images.present?
         redirect_to root_path, notice: "商品の編集が完了しました！"
       else
-        redirect_to new_item_path, alert: "未入力の項目があります！"
+        render :edit, alert: "未入力の項目があります！"
       end
     else
       redirect_to new_item_path, alert: "未入力の項目があります！"
