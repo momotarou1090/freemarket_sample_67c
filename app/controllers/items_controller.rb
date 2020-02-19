@@ -27,9 +27,7 @@ class ItemsController < ApplicationController
   end
   
   def edit
-    if current_user.id != @item.seller_id
-      redirect_to root_path
-    end
+    redirect_to action: :index unless user_signed_in?
 
     @images = @item.images
     # 4.times{ @item.images.build }

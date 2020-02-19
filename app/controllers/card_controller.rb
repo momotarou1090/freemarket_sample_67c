@@ -1,10 +1,10 @@
 class CardController < ApplicationController
-
   require "payjp"
+  before_action :move_to_index
 
   def new
-    card = Card.where(user_id: current_user.id)
-    redirect_to action: "show" if card.exists?
+      card = Card.where(user_id: current_user.id)
+      redirect_to action: "show" if card.exists?
   end
 
   def pay #payjpとCardのデータベース作成を実施します。
@@ -48,5 +48,13 @@ class CardController < ApplicationController
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
+  end
+end
+
+private
+
+def move_to_index
+  unless user_signed_in?
+  redirect_to root_path
   end
 end
