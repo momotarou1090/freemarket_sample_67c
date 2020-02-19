@@ -19,6 +19,7 @@
             = f.email_field :email, autofocus: true, autocomplete: "email", class: "form",placeholder: "PC/携帯どちらでも可能"
           .field
             = f.label :電話番号
+            %span.necessary 必須
             %br/
             = f.text_field :phone_number, autofocus: true, maxlength: "12", class: "form",placeholder: "携帯番号を入力"
           .field
