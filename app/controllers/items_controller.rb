@@ -74,28 +74,27 @@ class ItemsController < ApplicationController
   end
 
   def create
+    @category_parent_array = ["---"]
+    #データベースから、親カテゴリーのみ抽出し、配列化
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+    
     @item = Item.new(item_params)
-    if @item.images.present?
       if @item.save
         redirect_to root_path, notice: "商品を出品しました！"
       else
-        redirect_to new_item_path, alert: "未入力の項目があります！"
+        flash[:alert] = "未入力の項目があります"
+        render :new
       end
-    else
-      redirect_to new_item_path, alert: "未入力の項目があります！"
-    end
   end
   
   def update
-    if @item.update(item_params)
-      if @item.images.present?
-        redirect_to root_path, notice: "商品の編集が完了しました！"
-      else
-        render :edit, alert: "未入力の項目があります！"
-      end
-    else
-      redirect_to new_item_path, alert: "未入力の項目があります！"
-    end
+   if @item.update(item_params)
+    redirect_to root_path, notice: "商品の編集が完了しました！"
+   else
+    redirect_to edit_item_path, alert: "画像は1枚以上必要です"
+   end
   end
 
   def show
