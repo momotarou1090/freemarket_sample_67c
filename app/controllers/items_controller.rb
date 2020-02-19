@@ -93,7 +93,7 @@ class ItemsController < ApplicationController
    if @item.update(item_params)
     redirect_to root_path, notice: "商品の編集が完了しました！"
    else
-    redirect_to edit_item_path, alert: "画像は1枚以上必要です"
+    redirect_to edit_item_path, alert: "未入力の項目があります"
    end
   end
 
